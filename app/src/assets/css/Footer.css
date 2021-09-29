@@ -1,0 +1,14 @@
+.footer {
+    display: flex;
+    justify-content: space-around;
+    font-family: 'Acme', sans-serif;;
+}
+
+.title-content {
+    font-size: 28px;
+}
+
+.content p {
+    font-size: 22px;
+    padding: 10px;
+}

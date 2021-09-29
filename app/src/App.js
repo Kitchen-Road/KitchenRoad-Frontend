@@ -1,9 +1,6 @@
 import React from "react";
-
 import Button from "./components/utils/button";
-
 import './assets/css/global.scss';
-
 import Form from "./components/utils/Form.js";
 
 const App = () => {

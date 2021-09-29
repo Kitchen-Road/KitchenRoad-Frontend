@@ -1,0 +1,36 @@
+form {
+    left: 50%;
+}
+
+.title{
+    color: #BE1414;
+    font-size: 52px;
+}
+
+.sign-up {
+    font-family: 'Acme', sans-serif;
+}
+
+.sign-up label {
+    display: block !important;
+}
+
+.sign-up input {
+    border: solid #F77F00;
+    width: 357px;
+    height: 38px;
+    margin-bottom: 16px;
+    border-radius: 4px;
+    background-color: #F8F5E7;
+}
+
+.sign-up input::placeholder {
+    font-family: 'Acme', sans-serif;
+    color: #242424;
+    font-size: 18px;
+}
+
+#link {
+    color: #D62828;
+}
+

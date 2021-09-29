@@ -1,8 +1,8 @@
-import './App.css';
-import Register from './components/Form/Register/Register.js';
-import Login from './components/Form/Login/Login.js';
-import Navbar from './components/Form/Navbar/Navbar';
-import Footer from './components/Footer/Footer'
+import './assets/css/global.scss';
+
+import Register from './components/container/register.js'
+import Navbar from './components/container/navbar.js';
+import Footer from './components/container/footer.js'
 
 function App() {
   return (

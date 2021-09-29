@@ -1,9 +1,19 @@
-import React from "react";
+import React from 'react';
 
-const Form = () => {
+import Input from './Input';
+
+const Form = ({onSubmit, inputs}) => {
+    
     return (
-        <div></div>
+        <div>
+            <form onSubmit={onSubmit}>
+                {inputs.map((input) => <><Input input={input.input} key={input.input} /> <br/> </> )}
+            </form>
+        </div>
     )
+
+
 }
 
 export default Form;
+

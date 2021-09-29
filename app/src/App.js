@@ -1,24 +1,13 @@
+import React from 'react';
 import './assets/css/global.scss';
 
-import Register from './components/container/register.js'
-import Navbar from './components/container/navbar.js';
-import Footer from './components/container/footer.js'
+import Home from './pages/home';
 
 function App() {
   return (
 
-    <div className="App">
-      <Navbar />
-      <br/>
+    <Home/>
 
-      <Register />
-      <br/>
-
-      <Footer />      
-      <br/>
-
-
-    </div>
   );
 }
 

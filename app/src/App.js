@@ -1,30 +1,25 @@
-import React from "react";
-import Button from "./components/utils/button";
-import './assets/css/global.scss';
-import Form from "./components/utils/Form.js";
+import './App.css';
+import Register from './components/Form/Register/Register.js';
+import Login from './components/Form/Login/Login.js';
+import Navbar from './components/Form/Navbar/Navbar';
+import Footer from './components/Footer/Footer'
 
-const App = () => {
+function App() {
+  return (
 
-  const inputForm =[ 
-    
-      {
-        input: 'Derivada'
-      },
-      {
-        input : "ALOHA"
-      }
-  ]
-  
-  return(
-    <div>
-      <Form inputs={inputForm}/>
-      <Button 
-        text="aloha" 
-        action={() => console.log("DERIVADA")}
-      />
+    <div className="App">
+      <Navbar />
+      <br/>
+
+      <Register />
+      <br/>
+
+      <Footer />      
+      <br/>
+
+
     </div>
-  )
+  );
 }
 
 export default App;
-

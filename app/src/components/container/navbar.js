@@ -1,19 +1,29 @@
 import React from "react";
 
+import Button from "../utils/button";
+import List from "../utils/List";
+
+import Logo from "../../assets/img/logo";
+
 const Navbar = () => {
+
+    const listObject = [
+        {text: "Sobre"},
+        {text: "Comunidade"},
+        {text: "Contato"},
+    ]
+
     return (
         <header className="header">
-            <a className="logo" href="/" >Kitchen Road</a>
+             <Logo width="70" height="70"/>
+
             <nav>
-                <ul className="nav-list">
-                    <li><a href="/">Sobre</a></li>
-                    <li><a href="/">Comunidade</a></li>
-                    <li><a href="/">Contato</a></li>
-                </ul>
+                <List listObject={listObject}/>
             </nav>
+
             <div className="nav-buttons">
-                <button className="btn btn-register">Cadastrar</button>
-                <button className="btn btn-login">Entrar</button>
+                <Button style="btn-register" text="entrar"  />
+                <Button style="btn-login" text="cadastrar" />
             </div>
         </header>
     )

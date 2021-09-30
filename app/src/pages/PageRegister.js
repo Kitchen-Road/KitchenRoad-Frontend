@@ -4,18 +4,18 @@ import Footer from '../components/container/footer.js'
 
 function PageRegister() {
   return (
-
+    <>
     <div className="App">
         <Navbar /> 
         <br/>
 
         <Register />
-        <br/>
-
-        <Footer />      
+        <br/>   
         <br/>
       
     </div>
+    <Footer />
+    </>   
   );
 }
 

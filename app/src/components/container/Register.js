@@ -1,6 +1,17 @@
 import React from 'react';
 
+import Form from '../utils/form';
+
+
 const Register = () => {
+    const formInput = [
+        {
+            divClass : "sign-up",
+            type: "text", 
+            className: "inputUser", 
+            placeholder: "Digite seu nome:" 
+        },
+    ]
     return (
         <form>
             <h1 className="title">Criar conta</h1>

@@ -1,8 +1,8 @@
-import Register from '../components/container/register.js'
+import Register from '../components/container/Register.js'
 import Navbar from '../components/container/navbar.js';
 import Footer from '../components/container/footer.js'
 
-function Home() {
+function PageRegister() {
   return (
 
     <div className="App">
@@ -19,4 +19,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default PageRegister;

@@ -1,12 +1,12 @@
 import React from 'react';
 import './assets/css/global.scss';
 
-import Home from './pages/home';
+import PageRegister from './pages/PageRegister';
 
 function App() {
   return (
 
-    <Home/>
+    <PageRegister />
 
   );
 }

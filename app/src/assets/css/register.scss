@@ -1,5 +1,12 @@
+div {
+    display: block;
+    text-align: center;
+}
+
 form {
-    left: 50%;
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .title{
@@ -22,12 +29,59 @@ form {
     margin-bottom: 16px;
     border-radius: 4px;
     background-color: #F8F5E7;
+    width: 357px;
 }
+
+.sign-up input:focus {
+    border: 2px #BE1414 solid;
+}
+
 
 .sign-up input::placeholder {
     font-family: 'Acme', sans-serif;
     color: #242424;
     font-size: 18px;
+    padding: 8px;
+}
+
+.button {
+    border: none;
+    background: #F77F00;
+    font-size: 18px;
+    font-family: 'Luckiest Guy', sans-serif;
+    padding: 12px 15px;
+    border-radius: 12px;
+    width: 365px;
+}   
+
+.button:hover {
+    
+    transition: .7s ease;
+    cursor: pointer;
+}
+
+.button-primary {
+    margin-top: 20px;
+}
+
+.or {
+    padding: 20px;
+    font-family: 'Acme', sans-serif;
+}
+
+.or::after {
+    content: '';
+    display: block;
+    width: 45px;
+    height: 2px;
+    background: #F77F00;
+    margin: 0 auto;
+}
+
+.have-account {
+    font-family: 'Acme', sans-serif;
+    margin-top: 10px;
+    margin-left: 155px;
 }
 
 #link {

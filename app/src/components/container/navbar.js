@@ -11,21 +11,22 @@ const Navbar = () => {
         {text: "Sobre"},
         {text: "Comunidade"},
         {text: "Contato"},
+        {text: "Entrar"},
+        {text: "Cadastrar"},
     ]
 
     return (
+        <>
+        <div className="logo">
+            <Logo  width="70" height="70"/>
+        </div>
+
         <header className="header">
-             <Logo width="70" height="70"/>
-
             <nav>
-                <List className="nav-center" listObject={listObject}/>
+                <List listObject={listObject}/>
             </nav>
-
-            <div className="nav-buttons">
-                <Button style="btn-register" text="entrar"  />
-                <Button style="btn-login" text="cadastrar" />
-            </div>
         </header>
+        </>
     )
 }
 

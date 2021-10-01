@@ -6,7 +6,7 @@ const List = ({listObject}) => {
     return (
 
         <ul className="nav-list">
-            { listObject.map(({text, ref}) => <Item text={text} ref={ref} />)}
+            { listObject.map(({...props}) => <Item {...props} />)}
         </ul>
     )
 }

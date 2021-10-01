@@ -1,9 +1,13 @@
 import React from "react";
+import Button from "./button";
 
-const Item = ({ref, text}) => {
+const Item = ({ref, text, type}) => {
     return (
-
-        <li ref={ref}>{text}</li>
+        type === "btn" ? 
+        (
+            <Button text={text} />
+        )
+        : ( <li ref={ref}>{text}</li>)
     )
 }
 

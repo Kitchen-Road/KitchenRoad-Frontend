@@ -13,7 +13,7 @@ const Register = () => {
         },
     ]
     return (
-        <div>
+        <div >
             <form>
                 <h1 className="title">Criar conta</h1>
                 <div className="sign-up">

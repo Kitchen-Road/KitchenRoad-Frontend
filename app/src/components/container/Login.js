@@ -1,20 +1,30 @@
 import React from 'react';
 
 const Login = () => {
+
+    const formInput = [
+        {
+            divClass : "sign-up",
+            type: "text", 
+            className: "inputUser", 
+            placeholder: "Digite seu nome:" 
+        }, 
+    ]
     return (
         <form>
             <h1 className="title">Acessar conta</h1>
-            <div>
-                <label>Email</label>
-                <input type="email" className="inputUser" required/>
+            <div className="sign-up">
+                {/* <label>Email</label> */}
+                <input type="email" className="inputUser" placeholder="Digite seu email:" required/>
             </div>
 
-            <div>
-                <label>Senha</label>
-                <input type="text" className="inputUser" required/>
+            <div className="sign-up">
+                {/* <label>Senha</label> */}
+                <input type="text" className="inputUser" placeholder="Digite sua senha:" required/>
             </div>
 
-            <button>Acessar conta</button>
+            <button className="button button-primary">Acessar conta</button>
+            <p className="have-account">Esqueceu sua senha? Clique aqui</p>
         </form>
     )
 }

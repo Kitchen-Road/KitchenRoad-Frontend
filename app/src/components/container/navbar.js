@@ -18,7 +18,7 @@ const Navbar = () => {
              <Logo width="70" height="70"/>
 
             <nav>
-                <List listObject={listObject}/>
+                <List className="nav-center" listObject={listObject}/>
             </nav>
 
             <div className="nav-buttons">

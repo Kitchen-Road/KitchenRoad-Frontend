@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import GetReceitas from "../../data/receitasData";
+import React from "react";
+
 import Search from "./search";
 
 function formatExperiencia(dificuldade) {
@@ -18,17 +18,7 @@ function formatExperiencia(dificuldade) {
   return xp;
 }
 
-const Receitas = () => {
-  const [receitaList, setReceitasList] = useState([]);
-  useEffect(() => {
-    const loadReceitas = async () => {
-      let list = [];
-      list = await GetReceitas.getReceitas();
-      setReceitasList(list);
-    };
-    loadReceitas();
-  }, []);
-
+const Receitas = ({ receitaList }) => {
   return (
     <div>
       <div className="title-1">Receitas</div>

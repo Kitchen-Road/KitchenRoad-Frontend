@@ -7,7 +7,7 @@ import PageRegister from './pages/PageRegister';
 function App() {
   return (
 
-    <PageLogin />
+    <PageRegister />
 
   );
 }

@@ -1,8 +1,10 @@
 import API from './constants.js'
 
-class Api {
+const Api =  {
 
-    fetch(methodo, token, endPoint ) {
+    fetch :(methodo, token, endPoint ) => {
+        console.log(methodo, token, endPoint)
+
         var xhr = new XMLHttpRequest();
 
         xhr.addEventListener("readystatechange", function() {
@@ -11,50 +13,49 @@ class Api {
           }
         });
     
-        xhr.open("GET", "http://127.0.0.1:8000/categorias/");
-        xhr.setRequestHeader("Authorization", "Basic IDo=");
+        xhr.open("GET", "https://api.github.com/repos/fga-eps-mds/PullBot/commits");
     
         xhr.send();
-    }
-
-
-    cadastrar () {
+    },
+    cadastrar:  () => {
         this.fetch(
             'POST', 
-            TOKEN, 
+            API.TOKEN, 
             API.HTTP +
             API.PORT + 
             API.SINGUP
         )
-    }
+    },
 
-    logar () {
+    logar: () => {
         return this.fetch(
             'POST', 
-            TOKEN, 
+            API.TOKEN, 
             API.HTTP +
             API.PORT + 
             API.LOGIN
         )
-    }
+    },
 
-    VerReceitas () {
+    VerReceitas: () => {
         return this.fetch(
             'POST', 
-            TOKEN, 
+            API.TOKEN, 
             API.HTTP +
             API.PORT + 
             API.RECEITAS
         )
-    }
+    },
 
-    pesquisarReceitas () {
+    pesquisarReceitas: () => {
         return this.fetch(
             'POST', 
-            TOKEN, 
+            API.TOKEN, 
             API.HTTP +
             API.PORT + 
             API.SEARCH
         )    
     }
 }
+
+export default Api;

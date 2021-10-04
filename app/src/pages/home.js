@@ -8,6 +8,7 @@ import Img2 from "../assets/img/imgHome2.png"
 import Button from "../components/utils/button";
 
 const Home = () => {
+    
     return (
         <>
         <Navbar /> 

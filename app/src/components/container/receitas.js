@@ -1,7 +1,5 @@
 import React from "react";
 
-import Search from "./search";
-
 function formatExperiencia(dificuldade) {
   var xp;
   switch (dificuldade) {
@@ -21,14 +19,16 @@ function formatExperiencia(dificuldade) {
 const Receitas = ({ receitaList }) => {
   return (
     <div>
-      <div className="title-1">Receitas</div>
-      <Search />
       <section>
         {receitaList.map((item, key) => (
           <div className="receitas-grid">
             {item.receitas.map((result, key) => (
               <div className="receita-item">
-                <img className="image-box" src={result.imagem} />
+                <img
+                  className="image-box"
+                  src={result.imagem}
+                  alt="Houve um erro ao carregar a imagem"
+                />
                 <div className="title-receita">{result.nome_receita}</div>
                 <div className="title-dificuldade">
                   Dificuldade: {formatExperiencia(result.dificuldade)}

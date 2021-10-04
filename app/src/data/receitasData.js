@@ -1,8 +1,12 @@
-const getReceitasJson = async() =>{
-    const url = 'http://localhost:8000/receitas/'
+const getReceitasJson = async(filtro) =>{
+  var url;
+  if(filtro === undefined)
+    url = 'http://localhost:8000/receitas/';
+  else
+    url = 'http://localhost:8000/receitas/?search='+filtro;
     const header = new Headers({    
         "Content-Type": "application/json",
-        "Authorization": "Token " + "694f923bdc9d66a3f8134a4ffbaa00eae13c1c0806435c2473fcbd5386d5facc",
+        "Authorization": "Token " + "8e90c0aeb39ec5e929a972c6c743a5fac0c64513c663e9afb8acc6f4dfa502c7",
     });
     const response = await fetch(url, {
         method: "GET", 
@@ -13,9 +17,9 @@ const getReceitasJson = async() =>{
 }
 
 export default{
-    getReceitas: async () => {
+    getReceitas: async (filtro) => {
         return[{
-            receitas: await getReceitasJson() 
+            receitas: await getReceitasJson(filtro) 
         }]
     }
 }

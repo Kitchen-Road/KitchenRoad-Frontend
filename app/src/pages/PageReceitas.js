@@ -10,17 +10,18 @@ import Col from "react-bootstrap/Col";
 
 function PageReceitas() {
   const [filtro, setFiltro] = useState("");
+  const [dificuldade, setDificuldade] = useState("");
   const [input, setInput] = useState("");
   const [receitaList, setReceitasList] = useState([]);
 
   useEffect(() => {
     const loadReceitas = async () => {
       let list = [];
-      list = await GetReceitas.getReceitas(filtro);
+      list = await GetReceitas.getReceitas(filtro, dificuldade);
       setReceitasList(list);
     };
     loadReceitas();
-  }, [filtro]);
+  }, [filtro, dificuldade]);
 
   const updateInput = async (input) => {
     setInput(input);
@@ -55,26 +56,51 @@ function PageReceitas() {
                   Categoria
                 </Dropdown.Toggle>
                 <Dropdown.Menu variant="dark" className="super-colors">
-                  <Dropdown.Item eventKey="1">Todas</Dropdown.Item>
-                  <Dropdown.Item eventKey="2">Aves</Dropdown.Item>
-                  <Dropdown.Item eventKey="3">Bebidas</Dropdown.Item>
-                  <Dropdown.Item eventKey="4">Bolos</Dropdown.Item>
-                  <Dropdown.Item eventKey="5">Doces</Dropdown.Item>
-                  <Dropdown.Item eventKey="6">Peixes</Dropdown.Item>
-                  <Dropdown.Item eventKey="7">Salgados</Dropdown.Item>
-                  <Dropdown.Item eventKey="8">Massas</Dropdown.Item>
+                  <Dropdown.Item onClick={() => setFiltro()}>
+                    Todas
+                  </Dropdown.Item>
+                  <Dropdown.Item onClick={() => setFiltro("Aves")}>
+                    Aves
+                  </Dropdown.Item>
+                  <Dropdown.Item onClick={() => setFiltro("Bebidas")}>
+                    Bebidas
+                  </Dropdown.Item>
+                  <Dropdown.Item onClick={() => setFiltro("Bolos")}>
+                    Bolos
+                  </Dropdown.Item>
+                  <Dropdown.Item onClick={() => setFiltro("Doces")}>
+                    Doces
+                  </Dropdown.Item>
+                  <Dropdown.Item onClick={() => setFiltro("Peixes")}>
+                    Peixes
+                  </Dropdown.Item>
+                  <Dropdown.Item onClick={() => setFiltro("Salgados")}>
+                    Salgados
+                  </Dropdown.Item>
+                  <Dropdown.Item onClick={() => setFiltro("Massas")}>
+                    Massas
+                  </Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>
             </Col>
             <Col sm md xs lg="2">
-              <Dropdown variant="dark">
+              <Dropdown>
                 <Dropdown.Toggle variant="dark" id="dropdown2">
                   Dificuldade
                 </Dropdown.Toggle>
                 <Dropdown.Menu variant="dark" className="super-colors">
-                  <Dropdown.Item eventKey="1">Iniciante</Dropdown.Item>
-                  <Dropdown.Item eventKey="2">Intermediária</Dropdown.Item>
-                  <Dropdown.Item eventKey="3">Avançada</Dropdown.Item>
+                  <Dropdown.Item onClick={() => setDificuldade()}>
+                    Todas
+                  </Dropdown.Item>
+                  <Dropdown.Item onClick={() => setDificuldade("I")}>
+                    Iniciantes
+                  </Dropdown.Item>
+                  <Dropdown.Item onClick={() => setDificuldade("T")}>
+                    Intermediárias
+                  </Dropdown.Item>
+                  <Dropdown.Item onClick={() => setDificuldade("A")}>
+                    Avançadas
+                  </Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>
             </Col>

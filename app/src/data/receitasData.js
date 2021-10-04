@@ -1,7 +1,16 @@
-const getReceitasJson = async (filtro) => {
+const getReceitasJson = async (filtro, dificuldade) => {
   var url;
-  if (filtro === undefined) url = "http://localhost:8000/receitas/";
-  else url = "http://localhost:8000/receitas/?search=" + filtro;
+  console.log(dificuldade);
+  if (dificuldade === undefined) dificuldade = "";
+  if (filtro === undefined) filtro = "";
+  if (filtro === "" && dificuldade === "")
+    url = "http://localhost:8000/receitas/";
+  else
+    url =
+      "http://localhost:8000/receitas/?search=" +
+      filtro +
+      "&dificuldade=" +
+      dificuldade;
   const header = new Headers({
     "Content-Type": "application/json",
     Authorization:
@@ -17,10 +26,10 @@ const getReceitasJson = async (filtro) => {
 };
 
 export default {
-  getReceitas: async (filtro) => {
+  getReceitas: async (filtro, dificuldade) => {
     return [
       {
-        receitas: await getReceitasJson(filtro),
+        receitas: await getReceitasJson(filtro, dificuldade),
       },
     ];
   },

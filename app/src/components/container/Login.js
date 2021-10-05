@@ -36,7 +36,7 @@ const Login = () => {
       <div className="sign-up">
         {/* <label>Senha</label> */}
         <input
-          type="text"
+          type="password"
           className="inputUser"
           placeholder="Digite sua senha:"
           value={senha}

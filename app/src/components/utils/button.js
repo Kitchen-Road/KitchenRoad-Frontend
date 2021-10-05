@@ -4,7 +4,7 @@ const Button = ({action, text, style}) => {
     return (    
             <button 
                 onClick={action} 
-                className={"btn " + style}
+                className={"btn-" + style}
             >
                 { text }
             </button>

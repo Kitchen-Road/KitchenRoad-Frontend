@@ -1,5 +1,5 @@
 import React from 'react';
-import Form from '../utils/Form';
+import form from '../utils/form';
 
 
 const Register = () => {

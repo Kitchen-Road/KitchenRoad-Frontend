@@ -11,6 +11,31 @@
     left: 12px;
 }
 
+.label-nav{
+    font-size: 22px;
+    font-weight:bold;
+    top: 20px;
+    left: 20px;
+    font-family: $font-primary, sans-serif;
+    color: $dark_orange;
+    margin-right: 30vw;
+}
+
+.label-nav:hover{
+    color: $dark_gray;
+    transition: all 0.3s ease-out;
+}
+
+.navbar{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    justify-content: center;
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+}
+
 .nav-list {
     display: flex;
     font-family: 'Luckiest Guy', sans-serif;

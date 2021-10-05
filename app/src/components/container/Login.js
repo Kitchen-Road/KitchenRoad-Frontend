@@ -1,7 +1,10 @@
 import React from 'react';
 
-const Login = () => {
+import Api from '../../api/GateAway';
 
+const Login = () => {
+    
+    const api = new Api();
     const formInput = [
         {
             divClass : "sign-up",
@@ -23,7 +26,7 @@ const Login = () => {
                 <input type="text" className="inputUser" placeholder="Digite sua senha:" required/>
             </div>
 
-            <button className="button button-primary">Acessar conta</button>
+            <button className="button button-primary" onClick={() => api.cadastrar}>Acessar conta</button>
             <p className="have-account">Esqueceu sua senha? Clique aqui</p>
         </form>
     )

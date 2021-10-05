@@ -3,7 +3,8 @@ import React from "react";
 import Button from "../utils/button";
 import List from "../utils/List";
 
-import Logo from "../../assets/img/logo";
+// import Logo from "../../assets/img/logo.js";
+import Logo from "../../assets/img/logo.png";
 
 const Navbar = () => {
 
@@ -18,7 +19,8 @@ const Navbar = () => {
     return (
         <>
         <div className="logo">
-            <Logo  width="70" height="70"/>
+            {/* <Logo  width="70" height="70"/> */}
+            <img src={Logo} width="70" height="70"></img>
         </div>
 
         <header className="header">

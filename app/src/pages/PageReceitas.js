@@ -12,6 +12,22 @@ import Col from "react-bootstrap/Col";
 import Logo from "../assets/img/logo";
 import Popup from "../components/utils/Popup.js";
 
+function formatDificuldade(dificuldade) {
+  var xp;
+  switch (dificuldade) {
+    case "F":
+      xp = "Iniciante";
+      break;
+    case "M":
+      xp = "Intermediária";
+      break;
+    case "D":
+      xp = "Avançada";
+      break;
+  }
+  return xp;
+}
+
 function PageReceitas() {
   const [filtro, setFiltro] = useState("");
   const [dificuldade, setDificuldade] = useState("");
@@ -137,6 +153,9 @@ function PageReceitas() {
                   {item.dicas.map((dica, key) => (
                     <div>
                       <h2 className="title-1">{dica.titulo}</h2>
+                      <h3 className="title-2">
+                        {formatDificuldade(dica.dificuldade)}
+                      </h3>
                       <p>{dica.conteudo_dica}</p>
                     </div>
                   ))}

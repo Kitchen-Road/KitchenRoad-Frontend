@@ -1,7 +1,7 @@
 import NavbarLogado from '../components/container/NavbarLogado.js';
 import Video from '../components/utils/Video.js';
 import ListaModoPreparo from '../components/utils/ListaModoPreparo.js'; 
-
+import { Link } from "react-router-dom";
 //exemplo para uso
 const receita = {
     nome_receita: 'Pizza de peperoni',
@@ -17,7 +17,7 @@ function PageModoPreparo() {
       <div className="App">
           <NavbarLogado />
           <main>
-            <button className="btn-black">voltar</button>
+          <Link to="/Receitas"><button className="btn-black">voltar</button> </Link>
             <div className="topic">
               <h2 className="title">{receita.nome_receita}</h2>
               <h3 className="title-2">{receita.categoria}</h3>

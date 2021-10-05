@@ -15,17 +15,14 @@ const Register = () => {
                 <h1 className="title">Criar conta</h1>
 
                 <div className="sign-up">
-                    {/* <label>Digite seu email:</label> */}
                     <input type="text" className="inputUser" placeholder="Como você gostaria de ser chamado?" required/>
                 </div>
 
                 <div className="sign-up">
-                    {/* <label>Digite sua senha:</label> */}
                     <input type="email" className="inputUser" placeholder="Digite sua email:" required/>
                 </div>
 
                 <div className="sign-up">
-                    {/* <label>Digite sua senha:</label> */}
                     <input type="password" className="inputUser" placeholder="Digite sua senha:" required/>
                 </div>
 

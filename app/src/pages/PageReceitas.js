@@ -5,6 +5,7 @@ import GetReceitas from "../data/receitasData";
 import React, { useState, useEffect } from "react";
 import Dropdown from "react-bootstrap/Dropdown";
 import Row from "react-bootstrap/Row";
+import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Col from "react-bootstrap/Col";
 import Logo from "../assets/img/logo";
@@ -32,6 +33,10 @@ function PageReceitas() {
     <>
       <div className="App">
         <Logo width="70" height="70" />
+        <div className="title-2">
+          Está tendo dificuldade em prosseguir? Talvez uma dica lhe ajude!
+        </div>
+        <Button variant="dark">Dicas da Vovó</Button>
         <div className="title-1">Receitas</div>
         <Container>
           <Row className="justify-content-md-center">

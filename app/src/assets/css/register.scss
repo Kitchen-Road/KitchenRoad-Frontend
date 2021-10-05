@@ -9,9 +9,19 @@ form {
   margin-right: auto;
 }
 
-.title {
-  color: #be1414;
-  font-size: 52px;
+.title{
+    color: $dark_red;
+    font-size: 52px;
+}
+
+.title-2{
+    color: $dark-gray;
+    font-size: 36px;
+}
+
+.title-2-red{
+    color: $dark_red;
+    font-size: 36px;
 }
 
 .sign-up {

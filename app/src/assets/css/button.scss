@@ -1,4 +1,5 @@
 .btn {
+
   border: none;
   text-decoration: none;
   background: #f77f00;
@@ -19,4 +20,39 @@
   border-radius: 12px;
   padding: 14px 13px 10px 13px;
   font-family: "Luckiest Guy", sans-serif;
+}
+
+.btn-nav{
+    border: none;
+    text-decoration: none;
+    background: $dark_orange;
+    color: $dark_gray;
+    outline: none;
+    font-size: 18px;
+    border-radius: 12px;
+    padding: 7px 10px;
+    font-family: 'Luckiest Guy', sans-serif;
+
+}
+.btn-nav:hover{
+    color: white;
+    background: $dark_gray;
+    transition: all 0.3s ease-out;
+}
+
+.btn-black{
+    border: none;
+    text-decoration: none;
+    background: $dark-gray;
+    color: white;
+    outline: none;
+    font-size: 18px;
+    border-radius: 12px;
+    padding: 9px 12px;
+    font-family: 'Luckiest Guy', sans-serif;
+}
+
+.btn-black:hover{
+    background: $dark_orange;
+    transition: all 0.3s ease-out;
 }

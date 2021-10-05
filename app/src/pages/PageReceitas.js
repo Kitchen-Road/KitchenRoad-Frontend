@@ -1,5 +1,5 @@
 import Receitas from "../components/container/receitas.js";
-import Navbar from "../components/container/navbar.js";
+import NavbarLogado from "../components/container/NavbarLogado.js";
 import Footer from "../components/container/footer.js";
 import GetReceitas from "../api/receitasAPI";
 import React, { useState, useEffect } from "react";
@@ -9,12 +9,14 @@ import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Col from "react-bootstrap/Col";
 import Logo from "../assets/img/logo";
+import Popup from "../components/utils/Popup.js";
 
 function PageReceitas() {
   const [filtro, setFiltro] = useState("");
   const [dificuldade, setDificuldade] = useState("");
   const [input, setInput] = useState("");
   const [receitaList, setReceitasList] = useState([]);
+  const [buttonPopup, setButtonPopup] = useState(false)
 
   useEffect(() => {
     const loadReceitas = async () => {
@@ -33,10 +35,17 @@ function PageReceitas() {
     <>
       <div className="App">
         <Logo width="70" height="70" />
+        <NavbarLogado/>
         <div className="title-2">
           Está tendo dificuldade em prosseguir? Talvez uma dica lhe ajude!
         </div>
-        <Button variant="dark">Dicas da Vovó</Button>
+        <Container>
+          <Button variant="dark" onClick={() => setButtonPopup(true)}>Dicas da Vovó</Button>
+          <Popup  trigger={buttonPopup} setTrigger={setButtonPopup}>
+            <h2 className="title-1">Iniciante</h2>
+            <p>Para evitar que o extrato de tomate embolore depois de aberto, retire da lata e guarde em um potinho ou copo de vidro. Despeje por cima um pouco de óleo e conserve na geladeira.</p>
+          </Popup>
+        </Container>
         <div className="title-1">Receitas</div>
         <Container>
           <Row className="justify-content-md-center">

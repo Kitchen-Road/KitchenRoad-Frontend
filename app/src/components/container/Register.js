@@ -15,27 +15,20 @@ const Register = () => {
         <div >
             <form>
                 <h1 className="title">Criar conta</h1>
+
                 <div className="sign-up">
-                    {/* <label >Digite seu nome:</label> */}
-                    <input type="text" className="inputUser" placeholder="Digite seu nome:" required/>
+                    <input type="text" className="inputUser" id="username" placeholder="Como você gostaria de ser chamado?" required/>
                 </div>
 
                 <div className="sign-up">
-                    {/* <label>Digite seu email:</label> */}
-                    <input type="email" className="inputUser" placeholder="Como você gostaria de ser chamado?" required/>
+                    <input type="email" className="inputUser" id="email" placeholder="Digite sua email:" required/>
                 </div>
 
                 <div className="sign-up">
-                    {/* <label>Digite sua senha:</label> */}
-                    <input type="text" className="inputUser" placeholder="Digite sua email:" required/>
+                    <input type="text" className="inputUser" id="password" placeholder="Digite sua senha:" required/>
                 </div>
 
-                <div className="sign-up">
-                    {/* <label>Digite sua senha:</label> */}
-                    <input type="text" className="inputUser" placeholder="Digite sua senha:" required/>
-                </div>
-
-                <button className="button button-primary">Cadastrar-se</button>
+                <button className="button button-register">Cadastrar-se</button>
                 <p className="or">Ou</p>
                 <button className="button">Cadastrar-se com o Google</button>
                 <p className="have-account">Já possui uma conta? <a href="#" id="link">Clique aqui</a></p>

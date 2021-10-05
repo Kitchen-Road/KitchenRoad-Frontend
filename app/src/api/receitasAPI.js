@@ -2,7 +2,6 @@ import API from "./constants.js";
 
 const getReceitasJson = async (filtro, dificuldade) => {
   var url;
-  console.log(dificuldade);
   if (dificuldade === undefined) dificuldade = "";
   if (filtro === undefined) filtro = "";
   if (filtro === "" && dificuldade === "")

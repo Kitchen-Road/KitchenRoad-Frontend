@@ -2,6 +2,7 @@ import Receitas from "../components/container/receitas.js";
 import NavbarLogado from "../components/container/NavbarLogado.js";
 import Footer from "../components/container/footer.js";
 import GetReceitas from "../api/receitasAPI";
+import GetDica from "../api/dicasAPI";
 import React, { useState, useEffect } from "react";
 import Dropdown from "react-bootstrap/Dropdown";
 import Row from "react-bootstrap/Row";
@@ -10,22 +11,34 @@ import Container from "react-bootstrap/Container";
 import Col from "react-bootstrap/Col";
 import Logo from "../assets/img/logo";
 import Popup from "../components/utils/Popup.js";
+import FormatDica from "../components/utils/dica.js";
 
 function PageReceitas() {
   const [filtro, setFiltro] = useState("");
   const [dificuldade, setDificuldade] = useState("");
   const [input, setInput] = useState("");
   const [receitaList, setReceitasList] = useState([]);
-  const [buttonPopup, setButtonPopup] = useState(false)
+  const [dica, setDica] = useState([]);
+  const [buttonPopup, setButtonPopup] = useState(false);
 
   useEffect(() => {
     const loadReceitas = async () => {
+      console.log(buttonPopup);
       let list = [];
       list = await GetReceitas.getReceitas(filtro, dificuldade);
       setReceitasList(list);
     };
     loadReceitas();
-  }, [filtro, dificuldade]);
+  }, [filtro, dificuldade, buttonPopup]);
+
+  useEffect(() => {
+    const loadDicas = async () => {
+      let list = [];
+      list = await GetDica.getDica();
+      setDica(list);
+    };
+    loadDicas();
+  }, [buttonPopup]);
 
   const updateInput = async (input) => {
     setInput(input);
@@ -35,15 +48,16 @@ function PageReceitas() {
     <>
       <div className="App">
         <Logo width="70" height="70" />
-        <NavbarLogado/>
+        <NavbarLogado />
         <div className="title-2">
           Está tendo dificuldade em prosseguir? Talvez uma dica lhe ajude!
         </div>
         <Container>
-          <Button variant="dark" onClick={() => setButtonPopup(true)}>Dicas da Vovó</Button>
-          <Popup  trigger={buttonPopup} setTrigger={setButtonPopup}>
-            <h2 className="title-1">Iniciante</h2>
-            <p>Para evitar que o extrato de tomate embolore depois de aberto, retire da lata e guarde em um potinho ou copo de vidro. Despeje por cima um pouco de óleo e conserve na geladeira.</p>
+          <Button variant="dark" onClick={() => setButtonPopup(true)}>
+            Dicas da Vovó
+          </Button>
+          <Popup trigger={buttonPopup} setTrigger={setButtonPopup}>
+            {FormatDica(dica)}
           </Popup>
         </Container>
         <div className="title-1">Receitas</div>

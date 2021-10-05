@@ -1,21 +1,24 @@
+import API from "./constants.js";
+
 const getReceitasJson = async (filtro, dificuldade) => {
   var url;
   console.log(dificuldade);
   if (dificuldade === undefined) dificuldade = "";
   if (filtro === undefined) filtro = "";
   if (filtro === "" && dificuldade === "")
-    url = "http://localhost:8000/receitas/";
+    url = API.HTTP + API.PORT + API.RECEITAS;
   else
     url =
-      "http://localhost:8000/receitas/?search=" +
+      API.HTTP +
+      API.PORT +
+      API.RECEITAS +
+      API.SEARCH +
       filtro +
-      "&dificuldade=" +
+      API.DIFICULDADE +
       dificuldade;
   const header = new Headers({
     "Content-Type": "application/json",
-    Authorization:
-      "Token " +
-      "c3826b8e69f597478e0bad01d10ce71b370eee97d64ccccd71b3eca3a803bbe8",
+    Authorization: "Token " + API.TOKEN,
   });
   const response = await fetch(url, {
     method: "GET",

@@ -16,11 +16,10 @@ $ git clone https://github.com/Kitchen-Road/KitchenRoad-Backend.git
 $ cd app
 ```
 
-#### 3. Instale o node e o bootstrap:
+#### 3. Instale o node:
 
 ```
 $ npm install
-$ npm install bootstrap
 ```
 
 #### 3. Inicie o app:

@@ -1,7 +1,7 @@
 import Receitas from "../components/container/receitas.js";
 import Navbar from "../components/container/navbar.js";
 import Footer from "../components/container/footer.js";
-import GetReceitas from "../data/receitasData";
+import GetReceitas from "../api/receitasAPI";
 import React, { useState, useEffect } from "react";
 import Dropdown from "react-bootstrap/Dropdown";
 import Row from "react-bootstrap/Row";

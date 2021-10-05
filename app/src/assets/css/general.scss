@@ -5,15 +5,25 @@ body, ul, li, p {
   }
   
   body {
-    background-color: #F8F5E7;
+    background-color: #F8F5E7 !important;
     // max-width: 1500px;
     margin: 0 auto !important;
   }
   
   a {
-    text-decoration: none;
+    text-decoration: none !important;
   }
   
+  p{
+    font-size: 18px;
+    font-family: 'Acme', sans-serif;
+}
+
+
+.App{
+  margin-bottom: 40px !important;
+  margin-top: 50px;
+}
   /* .App {
     text-align: center;
   }

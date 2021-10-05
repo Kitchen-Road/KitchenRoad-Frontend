@@ -1,9 +1,9 @@
 const API = {
   HTTP: "https://",
   PORT: "kitchen-road-backend.herokuapp.com/",
-  COZINHEIRO: "cozinheiro",
-  SINGUP: "signup",
-  LOGIN: "login",
+  COZINHEIRO: "cozinheiro/",
+  SINGUP: "signup/",
+  LOGIN: "login/",
   RECEITAS: "receitas/",
   SEARCH: "?search=",
   DIFICULDADE: "&dificuldade=",

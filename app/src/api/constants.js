@@ -1,6 +1,6 @@
 const API = {
-  HTTP: "http://",
-  PORT: "localhost:8000/",
+  HTTP: "https://",
+  PORT: "kitchen-road-backend.herokuapp.com/",
   COZINHEIRO: "cozinheiro/",
   SINGUP: "signup/",
   LOGIN: "login/",
@@ -8,7 +8,7 @@ const API = {
   SEARCH: "?search=",
   DIFICULDADE: "&dificuldade=",
   DICA: "dicas/",
-  TOKEN: "34a820bd8aca2c9d2e82ac4147c75ac7134696434c41743586219e3b1885239b",
+  TOKEN: "51aab904c16778728a569a82c93bcd2daa2fde2f581f8e53c63e55d016e6c00b",
 };
 
 export default API;

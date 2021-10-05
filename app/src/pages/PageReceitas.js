@@ -18,7 +18,7 @@ function PageReceitas() {
   const [dificuldade, setDificuldade] = useState("");
   const [input, setInput] = useState("");
   const [receitaList, setReceitasList] = useState([]);
-  const [dica, setDica] = useState([]);
+  const [dicaList, setDicaList] = useState([]);
   const [buttonPopup, setButtonPopup] = useState(false);
 
   useEffect(() => {
@@ -29,13 +29,13 @@ function PageReceitas() {
       setReceitasList(list);
     };
     loadReceitas();
-  }, [filtro, dificuldade, buttonPopup]);
+  }, [filtro, dificuldade]);
 
   useEffect(() => {
     const loadDicas = async () => {
       let list = [];
       list = await GetDica.getDica();
-      setDica(list);
+      setDicaList(list);
     };
     loadDicas();
   }, [buttonPopup]);
@@ -49,17 +49,7 @@ function PageReceitas() {
       <div className="App">
         <Logo width="70" height="70" />
         <NavbarLogado />
-        <div className="title-2">
-          Está tendo dificuldade em prosseguir? Talvez uma dica lhe ajude!
-        </div>
-        <Container>
-          <Button variant="dark" onClick={() => setButtonPopup(true)}>
-            Dicas da Vovó
-          </Button>
-          <Popup trigger={buttonPopup} setTrigger={setButtonPopup}>
-            {FormatDica(dica)}
-          </Popup>
-        </Container>
+
         <div className="title-1">Receitas</div>
         <Container>
           <Row className="justify-content-md-center">
@@ -134,6 +124,28 @@ function PageReceitas() {
           </Row>
         </Container>
         <Receitas receitaList={receitaList} />
+        <Container>
+          <div className="title-2">
+            Está tendo dificuldade em prosseguir? Talvez uma dica lhe ajude!
+          </div>
+          <Button variant="dark" onClick={() => setButtonPopup(true)}>
+            Dicas da Vovó
+          </Button>
+          <Popup trigger={buttonPopup} setTrigger={setButtonPopup}>
+            <div>
+              {dicaList.map((item, key) => (
+                <div>
+                  {item.dicas.map((dica, key) => (
+                    <div>
+                      <h2 className="title-1">{dica.titulo}</h2>
+                      <p>{dica.conteudo_dica}</p>
+                    </div>
+                  ))}
+                </div>
+              ))}
+            </div>
+          </Popup>
+        </Container>
       </div>
       <Footer />
     </>

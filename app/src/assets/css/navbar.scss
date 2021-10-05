@@ -21,19 +21,13 @@
     margin-right: 30vw;
 }
 
-.label-nav:hover{
-    color: $dark_gray;
-    transition: all 0.3s ease-out;
-}
-
 .navbar{
     margin-top: 20px;
     margin-bottom: 20px;
-    justify-content: center;
-    display: flex;
-    position: relative;
-    justify-content: center;
-    align-items: center;
+    justify-content: center !important;
+    display: flex !important;
+    position: relative !important;
+    align-items: center !important;
 }
 
 .nav-list {

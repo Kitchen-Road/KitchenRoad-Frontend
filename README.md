@@ -7,7 +7,7 @@ Repositório Frontend
 #### 1. Clone o repositório:
 
 ```
-$ git clone https://github.com/Kitchen-Road/KitchenRoad-Backend.git
+$ git clone git@github.com:Kitchen-Road/KitchenRoad-Frontend.git
 ```
 
 #### 2. Acesse o diretório do app:

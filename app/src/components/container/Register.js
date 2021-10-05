@@ -1,5 +1,5 @@
 import React from 'react';
-import Form from '../utils/Form';
+import form from '../utils/form';
 
 
 const Register = () => {
@@ -22,23 +22,23 @@ const Register = () => {
 
                 <div className="sign-up">
                     {/* <label>Digite seu email:</label> */}
-                    <input type="email" className="inputUser" placeholder="Como você gostaria de ser chamado?" required/>
+                    <input type="text" className="inputUser" placeholder="Como você gostaria de ser chamado?" required/>
                 </div>
 
                 <div className="sign-up">
                     {/* <label>Digite sua senha:</label> */}
-                    <input type="text" className="inputUser" placeholder="Digite sua email:" required/>
+                    <input type="email" className="inputUser" placeholder="Digite sua email:" required/>
                 </div>
 
                 <div className="sign-up">
                     {/* <label>Digite sua senha:</label> */}
-                    <input type="text" className="inputUser" placeholder="Digite sua senha:" required/>
+                    <input type="password" className="inputUser" placeholder="Digite sua senha:" required/>
                 </div>
 
                 <button className="button button-primary">Cadastrar-se</button>
                 <p className="or">Ou</p>
                 <button className="button">Cadastrar-se com o Google</button>
-                <p className="have-account">Já possui uma conta? <a href="#" id="link">Clique aqui</a></p>
+                <p className="have-account">Já possui uma conta? <a href="/Login" id="link">Clique aqui</a></p>
             </form>
         </div>
     )

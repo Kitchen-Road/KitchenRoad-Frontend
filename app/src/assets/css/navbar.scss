@@ -1,46 +1,63 @@
 .header {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 20px;
 }
 
-.logo{
-    position: fixed;
-    top: 12px;
-    left: 12px;
+.logo {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+}
+
+.label-nav{
+    font-size: 22px;
+    font-weight:bold;
+    top: 20px;
+    left: 20px;
+    font-family: $font-primary, sans-serif;
+    color: $dark_orange;
+    margin-right: 30vw;
+}
+
+.navbar{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    justify-content: center !important;
+    display: flex !important;
+    position: relative !important;
+    align-items: center !important;
 }
 
 .nav-list {
-    display: flex;
-    font-family: 'Luckiest Guy', sans-serif;
-    margin-top: 15px;
-    padding: 0px;
+  display: flex;
+  font-family: "Luckiest Guy", sans-serif;
+  margin-top: 15px;
+  padding: 0px;
 }
 
 .nav-list li {
-    margin-left: 45px;
-    font-size: 18px;
+  margin-left: 45px;
+  font-size: 18px;
 }
 
 .nav-list li a {
-    display: block;
-    color: #101012;
-    
+  display: block;
+  color: #101012;
 }
 
 .btn {
-    border: none;
-    text-decoration: none;
-    background: #F77F00;
-    outline: none;
-    font-size: 18px;
-    border-radius: 12px;
-    padding: 12px 15px;
-    font-family: 'Luckiest Guy', sans-serif;
+  border: none;
+  text-decoration: none;
+  background: #f77f00;
+  outline: none;
+  font-size: 18px;
+  border-radius: 12px;
+  padding: 12px 15px;
+  font-family: "Luckiest Guy", sans-serif;
 }
 
 .btn-register {
-    margin-right: 22px;
-    
+  margin-right: 22px;
 }

@@ -1,42 +1,45 @@
-$dark_orange : #F77F00;
-$white_orange : #FCBF49;
-$dark_blue : #003049;
-$orange : #F99418;
-$white_red : #D62828;
-$dark_red : #B71414;
-$dark_sand : #EAE2B7;
-$sand : #F8F5E7;
-$dark_green : #242424;
-$black : #101012;
+$dark_orange: #f77f00;
+$white_orange: #fcbf49;
+$dark_blue: #003049;
+$orange: #f99418;
+$white_red: #d62828;
+$dark_red: #be1414;
+$dark_sand: #eae2b7;
+$sand: #f8f5e7;
+$medium_gray: #242424;
+$dark-green: #242424;
+$dark-gray: #1e1e20;
+$black: #101012;
 
 .dark_orange {
-    color: $dark_orange;
+  color: $dark_orange;
 }
 .white_orange {
-    color: $white_orange;
+  color: $white_orange;
 }
 .dark_blue {
-    color: $dark_blue;
+  color: $dark_blue;
 }
 .orange {
-    color: $orange;
+  color: $orange;
 }
 .white_red {
-    color: $white_red;
+  color: $white_red;
 }
 .dark_red {
-    color: $dark_red;
+  color: $dark_red;
 }
 .dark_sand {
-    color: $dark_sand;
+  color: $dark_sand;
 }
 .sand {
-    color: $sand;
-}
-.dark_green {
-    color: $dark_green;
-}
-.black {
-    color: $black;
+  color: $sand;
 }
 
+.medium_gray {
+  color: $medium_gray;
+}
+
+.black {
+  color: $black;
+}

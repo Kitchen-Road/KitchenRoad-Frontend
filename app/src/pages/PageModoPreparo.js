@@ -13,6 +13,7 @@ const receita = {
 }
 
 function PageModoPreparo() {
+  
     return (
       <div className="App">
           <NavbarLogado />

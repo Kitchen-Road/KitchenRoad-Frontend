@@ -23,7 +23,7 @@ const Receitas = ({ receitaList }) => {
         {receitaList.map((item, key) => (
           <div className="receitas-grid">
             {item.receitas.map((result, key) => (
-              <div className="receita-item">
+              <div className="receita-item" onClick={() => console.log(result)}>
                 <img
                   className="image-box"
                   src={result.imagem}

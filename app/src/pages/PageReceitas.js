@@ -44,7 +44,6 @@ function PageReceitas() {
 
   useEffect(() => {
     const loadReceitas = async () => {
-      console.log(buttonPopup);
       let list = [];
       list = await GetReceitas.getReceitas(filtro, dificuldade);
       setReceitasList(list);

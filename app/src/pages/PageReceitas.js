@@ -29,16 +29,21 @@ function formatDificuldade(dificuldade) {
 }
 
 function PageReceitas() {
+
   const [filtro, setFiltro] = useState("");
+
   const [dificuldade, setDificuldade] = useState("");
+
   const [input, setInput] = useState("");
+
   const [receitaList, setReceitasList] = useState([]);
+  
   const [dicaList, setDicaList] = useState([]);
+
   const [buttonPopup, setButtonPopup] = useState(false);
 
   useEffect(() => {
     const loadReceitas = async () => {
-      console.log(buttonPopup);
       let list = [];
       list = await GetReceitas.getReceitas(filtro, dificuldade);
       setReceitasList(list);

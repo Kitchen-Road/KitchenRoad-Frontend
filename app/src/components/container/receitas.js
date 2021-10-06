@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function formatExperiencia(dificuldade) {
   var xp;
@@ -23,7 +24,9 @@ const Receitas = ({ receitaList }) => {
         {receitaList.map((item, key) => (
           <div className="receitas-grid">
             {item.receitas.map((result, key) => (
-              <div className="receita-item">
+              
+              <div className="receita-item" >
+                <Link to={`ModoDePreparo/${result.id}`}>
                 <img
                   className="image-box"
                   src={result.imagem}
@@ -33,7 +36,9 @@ const Receitas = ({ receitaList }) => {
                 <div className="title-dificuldade">
                   Dificuldade: {formatExperiencia(result.dificuldade)}
                 </div>
+                </Link>
               </div>
+              
             ))}
           </div>
         ))}

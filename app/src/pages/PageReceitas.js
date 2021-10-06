@@ -29,11 +29,17 @@ function formatDificuldade(dificuldade) {
 }
 
 function PageReceitas() {
+
   const [filtro, setFiltro] = useState("");
+
   const [dificuldade, setDificuldade] = useState("");
+
   const [input, setInput] = useState("");
+
   const [receitaList, setReceitasList] = useState([]);
+  
   const [dicaList, setDicaList] = useState([]);
+
   const [buttonPopup, setButtonPopup] = useState(false);
 
   useEffect(() => {

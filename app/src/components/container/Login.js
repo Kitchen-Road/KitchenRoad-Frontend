@@ -1,14 +1,28 @@
 import React, { useState, useEffect } from "react";
+import { Redirect } from "react-router";
 
 import Api from "../../api/GateAway";
+import postLogin from '../../api/loginAPI';
 
 const Login = () => {
 
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
 
+  const post = async () => await postLogin();
+  
   console.log(email);
   console.log(senha);
+
+  const redirecionar = () => {
+  
+    if(post)
+    <Redirect to="/Receitas" />
+  }
+
+  useEffect(() => {
+    redirecionar();
+  }, [post]);
 
   const formInput = [
     {
@@ -45,7 +59,7 @@ const Login = () => {
         />
       </div>
 
-      <button className="button button-primary">Acessar conta</button>
+      <button onClick={ () => post(email, senha) }className="button button-primary">Acessar conta</button>
       <p className="have-account">Esqueceu sua senha? Clique aqui</p>
     </form>
   );

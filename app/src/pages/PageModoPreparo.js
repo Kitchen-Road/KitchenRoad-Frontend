@@ -26,7 +26,7 @@ function PageModoPreparo() {
   const [receita, setReceita] = useState({
     nome_receita: "-----",
     categoria: "-----",
-    link_video_receita: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    link_video_receita: "https://www.youtube.com/embed/j5a0jTc9S10",
     ingredientes: "----\r\n3 ----\r\n----\r\n -----.",
     modo_preparo: "------\n-----.\n -------.\n-------.\n-------",
     dificuldade: "--------",

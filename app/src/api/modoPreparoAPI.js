@@ -1,6 +1,6 @@
 import API from "./constants.js";
 
-const modoDePreparo = async ({id}) => {
+const getModoDePreparo = async ({id}) => {
     var url = API.HTTP + API.PORT + API.RECEITAS + id;
     const header = new Headers({
         "Content-Type": "application/json",
@@ -14,4 +14,4 @@ const modoDePreparo = async ({id}) => {
       return json;
 }
 
-export default modoDePreparo;
+export default getModoDePreparo

@@ -12,7 +12,7 @@ export default function Routes() {
                 <Route path="/SignUP" component={PageRegister} />
                 <Route path="/Login" component={PageLogin} />
                 <Route path="/Receitas" component={PageReceitas} />
-                <Route path="/ModoDePreparo" component={PageModoPreparo} />
+                <Route path="/ModoDePreparo/:id" component={PageModoPreparo} />
             </Switch>
         </BrowserRouter>
     );

@@ -1,8 +1,11 @@
 import NavbarLogado from '../components/container/NavbarLogado.js';
 import Video from '../components/utils/Video.js';
 import ListaModoPreparo from '../components/utils/ListaModoPreparo.js'; 
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
+import getModoDePreparo from '../api/modoPreparoAPI.js';
 //exemplo para uso
+
 const receita = {
     nome_receita: 'Pizza de peperoni',
     categoria: 'Massas',
@@ -13,7 +16,19 @@ const receita = {
 }
 
 function PageModoPreparo() {
-  
+    const { id } = useParams();
+    const [bananinha, setReceita] = useState({});
+
+    useEffect(() => {
+      const loadModoPreparo = async () => {
+        let list = [];
+        list = await getModoDePreparo.getModoDePreparo(id);
+        setReceita(list);
+        console.log(bananinha);
+      };
+      loadModoPreparo();
+    }, []);
+
     return (
       <div className="App">
           <NavbarLogado />

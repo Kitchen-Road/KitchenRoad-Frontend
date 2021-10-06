@@ -1,17 +1,23 @@
 import API from "./constants.js";
 
-const getModoDePreparo = async ({id}) => {
-    var url = API.HTTP + API.PORT + API.RECEITAS + id;
-    const header = new Headers({
-        "Content-Type": "application/json",
-        Authorization: "Token " + API.TOKEN,
-      });
-      const response = await fetch(url, {
-        method: "GET",
-        headers: header,
-      });
-      const json = await response.json();
-      return json;
-}
+const getModoDePreparoJson = async (id) => {
+  var url = API.HTTP + API.PORT + API.RECEITAS + id + "/";
+  const header = new Headers({
+    "Content-Type": "application/json",
+    Authorization: "Token " + API.TOKEN,
+  });
+  const response = await fetch(url, {
+    method: "GET",
+    mode: "cors",
+    headers: header,
+  });
 
-export default getModoDePreparo
+  const json = await response.json();
+  return json;
+};
+
+export default {
+  getModoDePreparo: async (id) => {
+    return await getModoDePreparoJson(id);
+  },
+};

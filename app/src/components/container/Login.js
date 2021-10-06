@@ -6,13 +6,19 @@ import postLogin from '../../api/loginAPI';
 
 const Login = () => {
 
-  const [email, setEmail] = useState("");
-  const [senha, setSenha] = useState("");
+  const [ email, setEmail ] = useState("");
+  const [ senha, setSenha ] = useState("");
 
-  const post = async () => await postLogin();
-  
-  console.log(email);
-  console.log(senha);
+  const [ retornoAsync, setRetornoAsync ] = useState(false)
+
+  const post = async () => {
+    await postLogin();
+    setRetornoAsync(true);
+    console.log(retornoAsync);
+  } 
+
+  // console.log(email);
+  // console.log(senha);
 
   const redirecionar = () => {
   
@@ -48,7 +54,6 @@ const Login = () => {
       </div>
 
       <div className="sign-up">
-        {/* <label>Senha</label> */}
         <input
           type="password"
           className="inputUser"
@@ -59,7 +64,7 @@ const Login = () => {
         />
       </div>
 
-      <button onClick={ () => post(email, senha) }className="button button-primary">Acessar conta</button>
+      <button onClick={ () => post (email, senha) } className="button button-primary">Acessar conta</button>
       <p className="have-account">Esqueceu sua senha? Clique aqui</p>
     </form>
   );

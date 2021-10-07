@@ -12,7 +12,7 @@ const Register = () => {
     return (
         <div >
             <form>
-                <h1 className="title">Criar conta</h1>
+                <h1 className="title-1-red">Criar conta</h1>
 
                 <div className="sign-up">
                     <input type="text" className="inputUser" placeholder="Como você gostaria de ser chamado?" required/>

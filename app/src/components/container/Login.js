@@ -34,7 +34,7 @@ const Login = () => {
   ];
   return (
     <form>
-      <h1 className="title">Acessar conta</h1>
+      <h1 className="title-1-red">Acessar conta</h1>
       <div className="sign-up">
         {/* <label>Email</label> */}
         <input

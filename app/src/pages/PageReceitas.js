@@ -69,7 +69,7 @@ function PageReceitas() {
         {/* <Logo width="70" height="70" /> */}
         <NavbarLogado />
 
-        <div className="title-1">Receitas</div>
+        <div className="title-1-dark">Receitas</div>
         <Container>
           <Row className="justify-content-md-center">
             <Col md="3">
@@ -144,7 +144,7 @@ function PageReceitas() {
         </Container>
         <Receitas receitaList={receitaList} />
         <Container>
-          <div className="title-2">
+          <div className="title-4-dark">
             Está tendo dificuldade em prosseguir? Talvez uma dica lhe ajude!
           </div>
           <button className="btn-black" onClick={() => setButtonPopup(true)}>

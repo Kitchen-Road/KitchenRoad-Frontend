@@ -54,7 +54,7 @@ function PageModoPreparo() {
         <div className="topic">
           <div className="title-modo">
             <img class="img-label" src={panelaReceita}/>
-            <h2 className="title">{receita.nome_receita}</h2>
+            <h2 className="title-1-red">{receita.nome_receita}</h2>
           </div>
           <h3 className="title-2">{receita.categoria}</h3>
           <Video link={receita.link_video_receita} />

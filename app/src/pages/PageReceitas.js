@@ -6,7 +6,6 @@ import GetDica from "../api/dicasAPI";
 import React, { useState, useEffect } from "react";
 import Dropdown from "react-bootstrap/Dropdown";
 import Row from "react-bootstrap/Row";
-import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Col from "react-bootstrap/Col";
 import Logo from "../assets/img/logo";
@@ -67,10 +66,10 @@ function PageReceitas() {
   return (
     <>
       <div className="App">
-        <Logo width="70" height="70" />
+        {/* <Logo width="70" height="70" /> */}
         <NavbarLogado />
 
-        <div className="title-1">Receitas</div>
+        <div className="title-1-dark">Receitas</div>
         <Container>
           <Row className="justify-content-md-center">
             <Col md="3">
@@ -145,12 +144,12 @@ function PageReceitas() {
         </Container>
         <Receitas receitaList={receitaList} />
         <Container>
-          <div className="title-2">
+          <div className="title-4-dark">
             Está tendo dificuldade em prosseguir? Talvez uma dica lhe ajude!
           </div>
-          <Button variant="dark" onClick={() => setButtonPopup(true)}>
+          <button className="btn-black" onClick={() => setButtonPopup(true)}>
             Dicas da Vovó
-          </Button>
+          </button>
           <Popup trigger={buttonPopup} setTrigger={setButtonPopup}>
             <div>
               {dicaList.map((item, key) => (

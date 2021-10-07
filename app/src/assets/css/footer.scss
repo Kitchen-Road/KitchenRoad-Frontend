@@ -16,4 +16,11 @@
 .content p {
   font-size: 18px;
   padding: 10px;
+  color: $dark_gray;
+}
+
+
+.content p:hover {
+  color: $dark_orange;
+  transition: all 0.2s ease-out;
 }

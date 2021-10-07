@@ -1,35 +1,32 @@
-.title-1 {
-    font-family: "Acme";
-    font-size: 36px;
-    color: #242424;
-    text-align: center;
-  }
-  
-  .title-2 {
-    font-family: "Acme";
-    font-size: 22px;
-    color: #242424;
-    text-align: center;
-  }
+.title-modo{
+  display: flex;
+  justify-content: center;
+  position: relative !important;
+  align-items:baseline !important;
+}
+
+.img-label{
+  margin-right: 0.5vw;
+}
   .center-btn {
     align-items: center;
     align-content: center;
     align-content: center;
   }
-  .title-receita {
+.title-receita {
     font-family: "Acme";
     font-size: 20px;
     color: #242424;
     cursor: pointer;
-  }
+}
   
-  .title-dificuldade {
+.title-dificuldade {
     font-family: "Acme";
     font-size: 14px;
     color: #474747;
     padding-bottom: 20px;
     cursor: pointer;
-  }
+}
   
   .image-box {
     border-radius: 10px;
@@ -132,11 +129,17 @@
     margin-bottom: 15px; 
 }
 
+// .topic ul{
+//   max-width: 500px;
+//   margin-left: 37vw;
+// }
+
 .topic li{
     font-size: 18px;
     color: $dark-gray;
     font-family: 'Acme', sans-serif;
     margin-bottom: 10px;
+    
 }
 
 .topic p{

@@ -60,7 +60,7 @@ const Login = () => {
       </div>
 
       <button onClick={ () => post(email, senha) }className="button button-primary">Acessar conta</button>
-      <p className="have-account">Esqueceu sua senha? Clique aqui</p>
+      <p className="have-account">Esqueceu sua senha?<a href="/EmConstrucao" id="link"> Clique aqui</a></p>
     </form>
   );
 };

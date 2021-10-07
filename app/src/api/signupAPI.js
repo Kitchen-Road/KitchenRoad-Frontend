@@ -1,33 +1,28 @@
 import API from "./constants.js";
 
-const signupPOST = async () => {
-
+const registerPOST = async (username, email, senha) => {
+  if ((username === "") | (email === "") | (senha === "")) return "Erro";
   var url = API.HTTP + API.PORT + API.COZINHEIRO + API.SINGUP;
 
   const header = new Headers({
     "Content-Type": "application/json",
   });
 
-  const formdata = new FormData();
-  formdata.append("username", String(email));
-  formdata.append("email", String(email));
-  formdata.append("password", String(senha));
-
   var raw = JSON.stringify({
-    "username": "brenno.silva037@gmail.com",
-    "email": "brenno.silva037@gmail.com",
-    "password": "senhaheroku2021"
+    username: username,
+    email: email,
+    password: senha,
   });
 
   const response = await fetch(url, {
     method: "POST",
     headers: header,
-    body: raw
+    body: raw,
   });
 
-  const json = await response.json();
-  console.log(json);
-  return json;
+  let resposta;
+  resposta = await response;
+  return resposta;
 };
 
-export default signupPOST;
+export default registerPOST;

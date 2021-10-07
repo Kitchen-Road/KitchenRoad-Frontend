@@ -40,6 +40,12 @@
 .nav-list li {
   margin-left: 45px;
   font-size: 18px;
+  color: $dark-gray;
+}
+
+.nav-list li:hover {
+  color: $dark_orange;
+  transition: all 0.1s ease-out;
 }
 
 .nav-list li a {

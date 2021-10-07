@@ -1,25 +1,25 @@
-import React, { useState, useEffect, useCallback } from "react";
-import { Redirect } from "react-router";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-
-import Api from "../../api/GateAway";
 import postLogin from "../../api/loginAPI";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
   const [loginBtn, setLoginBtn] = useState(false);
+  const [retorno, setRetorno] = useState(false);
 
   useEffect(() => {
     const post = async () => {
       let response = await postLogin(email, senha);
-      console.log(response.status);
+      response.status == 200 ? setRetorno(true) : setRetorno(false);
     };
     post();
   }, [loginBtn]);
 
-  return (
+  const ConditionalLink = ({ children, to, condition }) =>
+    condition ? <Link to={to}>{children}</Link> : <>{children}</>;
 
+  return (
     <div>
       <h1 className="title">Acessar conta</h1>
 
@@ -44,16 +44,18 @@ const Login = () => {
           required
         />
       </div>
+      <ConditionalLink to="/Receitas" condition={retorno} conditional link>
+        <button
+          onClick={() => setLoginBtn(!loginBtn)}
+          className="button button-primary"
+        >
+          Acessar conta
+        </button>
+      </ConditionalLink>
 
-      <button
-        onClick={() => setLoginBtn(!loginBtn)}
-        className="button button-primary"
-      >
-        Acessar conta
-      </button>
+      <div />
       <p className="have-account">Esqueceu sua senha? Clique aqui</p>
     </div>
-
   );
 };
 

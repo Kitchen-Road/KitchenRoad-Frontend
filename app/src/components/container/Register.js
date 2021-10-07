@@ -6,15 +6,20 @@ const Register = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
+  const [retorno, setRetorno] = useState(false);
   const [registerBtn, setRegisterBtn] = useState(false);
 
   useEffect(() => {
     const post = async () => {
       let response = await registerPOST(username, email, senha);
-      console.log(response.status);
+      response.status == 200 ? setRetorno(true) : setRetorno(false);
     };
     post();
   }, [registerBtn]);
+
+  const ConditionalLink = ({ children, to, condition }) =>
+    condition ? <Link to={to}>{children}</Link> : <>{children}</>;
+
   return (
     <div>
       <div>
@@ -52,13 +57,14 @@ const Register = () => {
             required
           />
         </div>
-
-        <button
-          className="button button-register"
-          onClick={() => setRegisterBtn(!registerBtn)}
-        >
-          Cadastrar-se
-        </button>
+        <ConditionalLink to="/Login" condition={retorno} conditional link>
+          <button
+            className="button button-register"
+            onClick={() => setRegisterBtn(!registerBtn)}
+          >
+            Cadastrar-se
+          </button>
+        </ConditionalLink>
         <p className="or">Ou</p>
         <Link to="/EmConstrucao">
           {" "}

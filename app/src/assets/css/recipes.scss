@@ -1,3 +1,14 @@
+.title-modo{
+  display: flex;
+  justify-content: center;
+  position: relative !important;
+  align-items:baseline !important;
+}
+
+.img-label{
+  margin-right: 0.5vw;
+}
+
 .title-1 {
     font-family: "Acme";
     font-size: 36px;
@@ -132,11 +143,17 @@
     margin-bottom: 15px; 
 }
 
+// .topic ul{
+//   max-width: 500px;
+//   margin-left: 37vw;
+// }
+
 .topic li{
     font-size: 18px;
     color: $dark-gray;
     font-family: 'Acme', sans-serif;
     margin-bottom: 10px;
+    
 }
 
 .topic p{

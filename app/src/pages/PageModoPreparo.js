@@ -4,6 +4,9 @@ import ListaModoPreparo from "../components/utils/ListaModoPreparo.js";
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import getModoDePreparo from "../api/modoPreparoAPI.js";
+import panelaReceita from '../assets/img/modoPreparo/panela-receita.png'
+import panelaModoPreparo from '../assets/img/modoPreparo/panela-modo-preparo.png'
+import conchaIngredientes from '../assets/img/modoPreparo/concha-ingredientes.png'
 
 function formatExperienciaReceita(dificuldade) {
   var xp;
@@ -49,15 +52,23 @@ function PageModoPreparo() {
           <button className="btn-black">voltar</button>{" "}
         </Link>
         <div className="topic">
-          <h2 className="title">{receita.nome_receita}</h2>
+          <div className="title-modo">
+            <img class="img-label" src={panelaReceita}/>
+            <h2 className="title">{receita.nome_receita}</h2>
+          </div>
           <h3 className="title-2">{receita.categoria}</h3>
           <Video link={receita.link_video_receita} />
           <p>{formatExperienciaReceita(receita.dificuldade)}</p>
         </div>
-        <ListaModoPreparo title="Ingredientes" value={receita.ingredientes} />
+        <ListaModoPreparo 
+        title="Ingredientes" 
+        value={receita.ingredientes} 
+        img={conchaIngredientes}
+        />
         <ListaModoPreparo
           title="Modo de preparo"
           value={receita.modo_preparo}
+          img={panelaModoPreparo}
         />
       </main>
     </div>

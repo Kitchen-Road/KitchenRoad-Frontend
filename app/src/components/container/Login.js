@@ -19,8 +19,10 @@ const Login = () => {
   }, [loginBtn]);
 
   return (
+
     <div>
       <h1 className="title">Acessar conta</h1>
+
       <div className="sign-up">
         <input
           type="email"
@@ -51,6 +53,7 @@ const Login = () => {
       </button>
       <p className="have-account">Esqueceu sua senha? Clique aqui</p>
     </div>
+
   );
 };
 

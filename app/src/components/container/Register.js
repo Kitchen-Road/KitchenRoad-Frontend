@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from "react-router-dom";
 
 const Register = () => {
     const formInput = [
@@ -12,7 +13,7 @@ const Register = () => {
     return (
         <div >
             <form>
-                <h1 className="title">Criar conta</h1>
+                <h1 className="title-1-red">Criar conta</h1>
 
                 <div className="sign-up">
                     <input type="text" className="inputUser" placeholder="Como você gostaria de ser chamado?" required/>
@@ -28,7 +29,7 @@ const Register = () => {
 
                 <button className="button button-register">Cadastrar-se</button>
                 <p className="or">Ou</p>
-                <button className="button">Cadastrar-se com o Google</button>
+                <Link to="/EmConstrucao">  <button className="button">Cadastrar-se com o Google</button></Link>
                 <p className="have-account">Já possui uma conta? <a href="/Login" id="link">Clique aqui</a></p>
             </form>
         </div>

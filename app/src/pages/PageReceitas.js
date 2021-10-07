@@ -29,22 +29,15 @@ function formatDificuldade(dificuldade) {
 }
 
 function PageReceitas() {
-
   const [filtro, setFiltro] = useState("");
-
   const [dificuldade, setDificuldade] = useState("");
-
   const [input, setInput] = useState("");
-
   const [receitaList, setReceitasList] = useState([]);
-  
   const [dicaList, setDicaList] = useState([]);
-
   const [buttonPopup, setButtonPopup] = useState(false);
 
   useEffect(() => {
     const loadReceitas = async () => {
-      console.log(buttonPopup);
       let list = [];
       list = await GetReceitas.getReceitas(filtro, dificuldade);
       setReceitasList(list);
@@ -70,7 +63,6 @@ function PageReceitas() {
       <div className="App">
         <Logo width="70" height="70" />
         <NavbarLogado />
-
         <div className="title-1">Receitas</div>
         <Container>
           <Row className="justify-content-md-center">

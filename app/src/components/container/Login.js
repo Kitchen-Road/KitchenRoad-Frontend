@@ -1,42 +1,29 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { Redirect } from "react-router";
+import { Link } from "react-router-dom";
 
 import Api from "../../api/GateAway";
-import postLogin from '../../api/loginAPI';
+import postLogin from "../../api/loginAPI";
 
 const Login = () => {
-
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
-
-  const post = async () => await postLogin();
-  
-  console.log(email);
-  console.log(senha);
-
-  const redirecionar = () => {
-  
-    if(post)
-    <Redirect to="/Receitas" />
-  }
+  const [loginBtn, setLoginBtn] = useState(false);
 
   useEffect(() => {
-    redirecionar();
-  }, [post]);
+    const post = async () => {
+      let response = await postLogin(email, senha);
+      console.log(response.status);
+    };
+    post();
+  }, [loginBtn]);
 
-  const formInput = [
-    {
-      divClass: "sign-up",
-      type: "text",
-      className: "inputUser",
-      placeholder: "Digite seu nome:",
-    },
-  ];
   return (
-    <form>
-      <h1 className="title-1-red">Acessar conta</h1>
+
+    <div>
+      <h1 className="title">Acessar conta</h1>
+
       <div className="sign-up">
-        {/* <label>Email</label> */}
         <input
           type="email"
           className="inputUser"
@@ -48,7 +35,6 @@ const Login = () => {
       </div>
 
       <div className="sign-up">
-        {/* <label>Senha</label> */}
         <input
           type="password"
           className="inputUser"
@@ -59,9 +45,15 @@ const Login = () => {
         />
       </div>
 
-      <button onClick={ () => post(email, senha) }className="button button-primary">Acessar conta</button>
-      <p className="have-account">Esqueceu sua senha?<a href="/EmConstrucao" id="link"> Clique aqui</a></p>
-    </form>
+      <button
+        onClick={() => setLoginBtn(!loginBtn)}
+        className="button button-primary"
+      >
+        Acessar conta
+      </button>
+      <p className="have-account">Esqueceu sua senha? Clique aqui</p>
+    </div>
+
   );
 };
 

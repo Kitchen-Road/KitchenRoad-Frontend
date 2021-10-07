@@ -11,7 +11,6 @@ const getDicaJson = async () => {
     headers: header,
   });
   const json = await response.json();
-  console.log(json);
   return json;
 };
 

@@ -9,11 +9,11 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
   const [loginBtn, setLoginBtn] = useState(false);
-  const [retornoAsync, setRetornoAsync] = useState(false);
 
   useEffect(() => {
     const post = async () => {
       let response = await postLogin(email, senha);
+      console.log(response.status);
     };
     post();
   }, [loginBtn]);

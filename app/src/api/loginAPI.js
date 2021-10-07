@@ -20,7 +20,7 @@ const loginPOST = async (email, senha) => {
   });
 
   let resposta;
-  resposta = await resposta;
+  resposta = await response;
   return resposta;
 };
 

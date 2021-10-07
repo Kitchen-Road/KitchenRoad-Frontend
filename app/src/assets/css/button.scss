@@ -1,14 +1,21 @@
-.btn {
+.btn-orange {
 
   border: none;
   text-decoration: none;
-  background: #f77f00;
+  background: $dark_orange;
   outline: none;
   font-size: 18px;
   border-radius: 12px;
-  padding: 12px 15px;
+  padding: 9px 15px;
   font-family: "Luckiest Guy", sans-serif;
 }
+
+.btn-orange:hover {
+  padding: 12px 17px;
+  font-size: 20px;
+  transition: all 0.3s ease-out;
+}
+
 
 .btn-bk {
   border: none;

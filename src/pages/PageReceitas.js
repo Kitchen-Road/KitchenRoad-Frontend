@@ -140,8 +140,8 @@ function PageReceitas() {
                   Festividades
                 </Dropdown.Toggle>
                 <Dropdown.Menu variant="dark" className="super-colors">
-                  <Dropdown.Item onClick={() => setFiltro()}>
-                    Nenhuma
+                  <Dropdown.Item onClick={() => setFiltro("")}>
+                    Todas
                   </Dropdown.Item>
                   <Dropdown.Item onClick={() => setFiltro("Natal")}>
                     Natal

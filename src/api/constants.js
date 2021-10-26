@@ -8,6 +8,7 @@ const API = {
   SEARCH: "?search=",
   DIFICULDADE: "&dificuldade=",
   DICA: "dicas/",
+  CONCLUIR: "concluir-receita/",
   TOKEN: "524ead71841625521f2abb80f5ceb5e475bd7e3ad8cc61dedf22466894900f25",
 };
 

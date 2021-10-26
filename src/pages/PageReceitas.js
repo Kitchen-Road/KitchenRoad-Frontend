@@ -66,7 +66,7 @@ function PageReceitas() {
 
         <Container>
           <Row className="justify-content-md-center">
-            <Col md="3">
+            <Col xs="3">
               <div className="search">
                 <div className="icon" onClick={() => setFiltro(input)}></div>
                 <div className="input">
@@ -80,7 +80,7 @@ function PageReceitas() {
                 </div>
               </div>
             </Col>
-            <Col sm md xs lg="1">
+            <Col xs="auto">
               <Dropdown>
                 <Dropdown.Toggle variant="dark" id="dropdown1">
                   Categoria
@@ -113,7 +113,7 @@ function PageReceitas() {
                 </Dropdown.Menu>
               </Dropdown>
             </Col>
-            <Col sm md xs lg="2">
+            <Col xs="auto">
               <Dropdown>
                 <Dropdown.Toggle variant="dark" id="dropdown2">
                   Dificuldade
@@ -130,6 +130,30 @@ function PageReceitas() {
                   </Dropdown.Item>
                   <Dropdown.Item onClick={() => setDificuldade("A")}>
                     Avançadas
+                  </Dropdown.Item>
+                </Dropdown.Menu>
+              </Dropdown>
+            </Col>
+            <Col xs="auto">
+              <Dropdown>
+                <Dropdown.Toggle variant="dark" id="dropdown2">
+                  Festividades
+                </Dropdown.Toggle>
+                <Dropdown.Menu variant="dark" className="super-colors">
+                  <Dropdown.Item onClick={() => setFiltro("")}>
+                    Todas
+                  </Dropdown.Item>
+                  <Dropdown.Item onClick={() => setFiltro("Natal")}>
+                    Natal
+                  </Dropdown.Item>
+                  <Dropdown.Item onClick={() => setFiltro("Páscoa")}>
+                    Páscoa
+                  </Dropdown.Item>
+                  <Dropdown.Item onClick={() => setFiltro("Halloween")}>
+                    Halloween
+                  </Dropdown.Item>
+                  <Dropdown.Item onClick={() => setFiltro("Festa Junina")}>
+                    Festa Junina
                   </Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>

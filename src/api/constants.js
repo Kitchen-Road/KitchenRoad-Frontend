@@ -8,7 +8,7 @@ const API = {
   SEARCH: "?search=",
   DIFICULDADE: "&dificuldade=",
   DICA: "dicas/",
-  TOKEN: "34b41ce8653b5dfdd1c10f00847e0670ccb160713ba834e18d4d8a2c3aa367be",
+  TOKEN: "524ead71841625521f2abb80f5ceb5e475bd7e3ad8cc61dedf22466894900f25",
 };
 
 export default API;

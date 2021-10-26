@@ -30,7 +30,11 @@ function formatExperienciaReceita(dificuldade) {
 
 function PageModoPreparo() {
   const { id } = useParams();
-  const [play] = useSound(trompete);
+  const [play] = useSound(
+    trompete,
+    { volume: 0.5 }
+  );
+
   const [receita, setReceita] = useState({
     nome_receita: "-----",
     categoria: "-----",
@@ -54,7 +58,11 @@ function PageModoPreparo() {
     if(localStorage.getItem('receitas_concluidas') === null || localStorage.getItem('receitas_concluidas') === '' || localStorage.getItem('receitas_concluidas') === 'NaN')
       localStorage.setItem('receitas_concluidas', 0)
     localStorage.setItem('receitas_concluidas', parseInt(localStorage.getItem('receitas_concluidas'))+1)
-    if(parseInt(localStorage.getItem('receitas_concluidas')) === 4){
+    if(parseInt(localStorage.getItem('receitas_concluidas')) === 1 ||
+       parseInt(localStorage.getItem('receitas_concluidas')) === 5 ||
+       parseInt(localStorage.getItem('receitas_concluidas')) === 10 ||
+       parseInt(localStorage.getItem('receitas_concluidas')) === 15
+      ){
       play()
       return true
     }

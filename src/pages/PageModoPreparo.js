@@ -13,6 +13,7 @@ import demon from '../assets/music/demon.mp3'
 import HellsKitchen from "../assets/img/conquista/HellsKitchen.png"
 import pengu from "../assets/img/conquista/pingu.png"
 import velho from "../assets/img/conquista/velhoputo.png"
+import jackin from "../assets/img/conquista/jackin.png"
 import useSound from 'use-sound';
 import trompete from '../assets/music/trompete.mp3'
 
@@ -46,7 +47,7 @@ function getImg(id){
   return id === '1' ? PrimeiraReceita:
          id === '5' ? pengu:
          id === '10' ? velho:
-         id === '15' ? 'https://play-lh.googleusercontent.com/zICISZPXRhNwnGcIVscVoB9eVlLH8KWdki7rTCSMesg3dDOG3zf_66_oWKhKPHfnN5Q4':
+         id === '15' ? jackin:
          id === '20' ? HellsKitchen:
          ''
 }

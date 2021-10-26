@@ -7,6 +7,10 @@ import getModoDePreparo from "../api/modoPreparoAPI.js";
 import panelaReceita from '../assets/img/modoPreparo/panela-receita.png'
 import panelaModoPreparo from '../assets/img/modoPreparo/panela-modo-preparo.png'
 import conchaIngredientes from '../assets/img/modoPreparo/concha-ingredientes.png'
+import Conquista from "../components/utils/Conquista.js";
+
+import useSound from 'use-sound';
+import trompete from '../assets/music/trompete.mp3'
 
 function formatExperienciaReceita(dificuldade) {
   var xp;
@@ -24,6 +28,15 @@ function formatExperienciaReceita(dificuldade) {
   return xp;
 }
 
+function setConquista(){
+  if(localStorage.getItem('receitas_concluidas') === null || localStorage.getItem('receitas_concluidas') === '' || localStorage.getItem('receitas_concluidas') === 'NaN')
+    localStorage.setItem('receitas_concluidas', 0)
+  localStorage.setItem('receitas_concluidas', parseInt(localStorage.getItem('receitas_concluidas'))+1)
+  if(parseInt(localStorage.getItem('receitas_concluidas')) === 4)
+    return true
+  return false
+}
+
 function PageModoPreparo() {
   const { id } = useParams();
   const [receita, setReceita] = useState({
@@ -34,6 +47,7 @@ function PageModoPreparo() {
     modo_preparo: "------\n-----.\n -------.\n-------.\n-------",
     dificuldade: "--------",
   });
+  const [buttonConquista, setButtonConquista] = useState(false);
 
   useEffect(() => {
     const loadModoPreparo = async () => {
@@ -49,7 +63,7 @@ function PageModoPreparo() {
       <NavbarLogado />
       <main>
         <Link to="/Receitas">
-          <button className="btn-black">voltar</button>{" "}
+          <button className="btn-black">voltar</button>
         </Link>
         <div className="topic">
           <div className="title-modo">
@@ -71,6 +85,18 @@ function PageModoPreparo() {
           img={panelaModoPreparo}
         />
       </main>
+      
+          <button className="btn-black" 
+            onClick={() => setButtonConquista(setConquista())}>
+            Marcar como concluída
+          </button>
+      <Link to="/Receitas">
+        <Conquista trigger={buttonConquista} setTrigger={setButtonConquista}>
+          <h2 className="title-1">Rei do Alho</h2>
+          <img src="https://cdn.discordapp.com/attachments/869650300913479715/902398054852874290/rei-do-alho-logo-5ED449F072-seeklogo.png" alt="Erro para "/>
+          <p>Lorem Lorem ipsum e isso</p>
+        </Conquista>
+      </Link>
     </div>
   );
 }

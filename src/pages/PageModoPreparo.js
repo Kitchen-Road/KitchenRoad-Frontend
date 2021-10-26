@@ -9,9 +9,13 @@ import panelaModoPreparo from '../assets/img/modoPreparo/panela-modo-preparo.png
 import conchaIngredientes from '../assets/img/modoPreparo/concha-ingredientes.png'
 import Conquista from "../components/utils/Conquista.js";
 import PrimeiraReceita from '../assets/img/conquista/primeira-receita.png'
-
+import demon from '../assets/music/demon.mp3'
+import HellsKitchen from "../assets/img/conquista/HellsKitchen.png"
+import pengu from "../assets/img/conquista/pingu.png"
+import velho from "../assets/img/conquista/velhoputo.png"
 import useSound from 'use-sound';
 import trompete from '../assets/music/trompete.mp3'
+
 
 function formatExperienciaReceita(dificuldade) {
   var xp;
@@ -34,14 +38,16 @@ function getNome(id){
          id === '5' ? 'Quase profissional':
          id === '10' ? 'Masterchef':
          id === '15' ? 'Melhor que o Jacquin Barriga':
+         id === '20' ? 'Cozinheiro do Inferno': 
          ''
 }
 
 function getImg(id){
   return id === '1' ? PrimeiraReceita:
-         id === '5' ? 'Quase profissional':
-         id === '10' ? 'https://www.puccicozinhas.com.br/wp-content/uploads/2017/05/Cozinha_Pucci_Slide_Cozinheira_Profissional.png':
+         id === '5' ? pengu:
+         id === '10' ? velho:
          id === '15' ? 'https://play-lh.googleusercontent.com/zICISZPXRhNwnGcIVscVoB9eVlLH8KWdki7rTCSMesg3dDOG3zf_66_oWKhKPHfnN5Q4':
+         id === '20' ? HellsKitchen:
          ''
 }
 function getConquistaPorQuantidade(qnt){
@@ -59,6 +65,10 @@ function PageModoPreparo() {
   const { id } = useParams();
   const [play] = useSound(
     trompete,
+    { volume: 0.5 }
+  );
+  const [play_demon] = useSound(
+    demon,
     { volume: 0.5 }
   );
   const [conquistaAdquirida, setConquistaAdquirida] = useState({
@@ -94,13 +104,19 @@ function PageModoPreparo() {
     if( receitas_concluidas  === '1' ||
         receitas_concluidas  === '5' ||
         receitas_concluidas  === '10' ||
-        receitas_concluidas  === '15'
+        receitas_concluidas  === '15' ||
+        receitas_concluidas === '20'
+       
       ){
       const resultado = getConquistaPorQuantidade(receitas_concluidas)
       setConquistaAdquirida(resultado)
-      play()
+      if(receitas_concluidas === '20'){
+        play_demon()
+      }else
+        play()
       return true
     }
+    
     return false
       
   };

@@ -28,17 +28,9 @@ function formatExperienciaReceita(dificuldade) {
   return xp;
 }
 
-function setConquista(){
-  if(localStorage.getItem('receitas_concluidas') === null || localStorage.getItem('receitas_concluidas') === '' || localStorage.getItem('receitas_concluidas') === 'NaN')
-    localStorage.setItem('receitas_concluidas', 0)
-  localStorage.setItem('receitas_concluidas', parseInt(localStorage.getItem('receitas_concluidas'))+1)
-  if(parseInt(localStorage.getItem('receitas_concluidas')) === 4)
-    return true
-  return false
-}
-
 function PageModoPreparo() {
   const { id } = useParams();
+  const [play] = useSound(trompete);
   const [receita, setReceita] = useState({
     nome_receita: "-----",
     categoria: "-----",
@@ -57,6 +49,17 @@ function PageModoPreparo() {
     };
     loadModoPreparo();
   }, []);
+
+  const handleClick = () => {
+    if(localStorage.getItem('receitas_concluidas') === null || localStorage.getItem('receitas_concluidas') === '' || localStorage.getItem('receitas_concluidas') === 'NaN')
+      localStorage.setItem('receitas_concluidas', 0)
+    localStorage.setItem('receitas_concluidas', parseInt(localStorage.getItem('receitas_concluidas'))+1)
+    if(parseInt(localStorage.getItem('receitas_concluidas')) === 4){
+      play()
+      return true
+    }
+    return false
+  };
 
   return (
     <div className="App">
@@ -87,7 +90,7 @@ function PageModoPreparo() {
       </main>
       
           <button className="btn-black" 
-            onClick={() => setButtonConquista(setConquista())}>
+            onClick={() => setButtonConquista(handleClick())}>
             Marcar como concluída
           </button>
       <Link to="/Receitas">

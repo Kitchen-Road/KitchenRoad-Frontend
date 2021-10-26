@@ -9,6 +9,7 @@ const Login = () => {
   const [retorno, setRetorno] = useState(false);
 
   useEffect(() => {
+    localStorage.setItem("receitas_concluidas", 0);
     const post = async () => {
       let response = await postLogin(email, senha);
       response.status == 200 ? setRetorno(true) : setRetorno(false);

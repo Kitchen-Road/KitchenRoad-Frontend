@@ -16,14 +16,17 @@
     position: relative;
     padding: 32px;
     width: 100%;
-    max-width: 400px;
+    max-width: 450px;
     color: white;
-
+    justify-content: center;
+    text-align: center;
     h2{
         color: white;
     }
 
     img{
-        width: 20vw;
+        height: 17vw;
+        border-radius: 50%;
+
     }
 }

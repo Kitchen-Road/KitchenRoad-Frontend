@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import frigideira from "../../assets/img/modoPreparo/frigideira.png";
-import kitchen from "../../assets/img/kitchen.png";
 
 const NavbarLogado = () => {
   const handleClick = () => {
@@ -16,7 +15,9 @@ const NavbarLogado = () => {
         </p>
       </Link>
       <Link to="/receitasConcluidas">
-        <img className="img-pad" src={kitchen} width="50" height="40"></img>
+        <button className="btn-nav" onClick={() => handleClick()}>
+          Receitas Concluídas
+        </button>
       </Link>
       <Link to="/">
         <button className="btn-nav" onClick={() => handleClick()}>

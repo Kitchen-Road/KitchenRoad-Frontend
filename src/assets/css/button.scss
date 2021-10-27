@@ -1,5 +1,4 @@
 .btn-orange {
-
   border: none;
   text-decoration: none;
   background: $dark_orange;
@@ -16,7 +15,6 @@
   transition: all 0.3s ease-out;
 }
 
-
 .btn-bk {
   border: none;
   text-decoration: none;
@@ -29,49 +27,67 @@
   font-family: "Luckiest Guy", sans-serif;
 }
 
-.btn-nav{
-    border: none;
-    text-decoration: none;
-    background: $dark_orange;
-    color: $dark_gray;
-    outline: none;
-    font-size: 18px;
-    border-radius: 12px;
-    padding: 7px 10px;
-    font-family: 'Luckiest Guy', sans-serif;
-
+.btn-nav {
+  border: none;
+  margin: 5px;
+  text-decoration: none;
+  background: $dark_orange;
+  color: $dark_gray;
+  outline: none;
+  font-size: 18px;
+  border-radius: 12px;
+  padding: 7px 10px;
+  font-family: "Luckiest Guy", sans-serif;
 }
-.btn-nav:hover{
-    color: white;
-    background: $dark_gray;
-    transition: all 0.3s ease-out;
-}
-
-.btn-black{
-    border: none;
-    text-decoration: none;
-    background: $dark-gray;
-    color: white;
-    outline: none;
-    font-size: 18px;
-    border-radius: 12px;
-    padding: 9px 12px;
-    font-family: 'Luckiest Guy', sans-serif;
+.btn-nav:hover {
+  color: white;
+  background: $dark_gray;
+  transition: all 0.3s ease-out;
 }
 
-.btn-black:hover{
-    background: $dark_orange;
-    transition: all 0.3s ease-out;
+.btn-black {
+  border: none;
+  text-decoration: none;
+  background: $dark-gray;
+  color: white;
+  outline: none;
+  font-size: 18px;
+  border-radius: 12px;
+  padding: 9px 12px;
+  font-family: "Luckiest Guy", sans-serif;
 }
 
-.close-btn{
+.btn-black:disabled {
+  border: none;
+  text-decoration: none;
+  background: $dark_red;
+  cursor: not-allowed;
+  color: white;
+  outline: none;
+  font-size: 18px;
+  border-radius: 12px;
+  padding: 9px 12px;
+  font-family: "Luckiest Guy", sans-serif;
+}
+
+.btn-black:hover {
+  background: $dark_orange;
+  transition: all 0.3s ease-out;
+}
+
+.btn-black:hover:disabled {
+  background: $dark-gray;
+  transition: all 0.3s ease-out;
+}
+
+.close-btn {
   border: none;
   text-decoration: none;
   background: $white_red;
   color: white;
   outline: none;
   font-size: 18px;
-  font-family: 'Luckiest Guy', sans-serif;
+  font-family: "Luckiest Guy", sans-serif;
   padding: 2px 10px;
   position: absolute;
   top: 16px;

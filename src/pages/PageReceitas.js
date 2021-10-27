@@ -8,7 +8,6 @@ import Dropdown from "react-bootstrap/Dropdown";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 import Col from "react-bootstrap/Col";
-import Logo from "../assets/img/logo";
 import Popup from "../components/utils/Popup.js";
 
 function formatDificuldade(dificuldade) {

@@ -8,15 +8,17 @@ import panelaReceita from '../assets/img/modoPreparo/panela-receita.png'
 import panelaModoPreparo from '../assets/img/modoPreparo/panela-modo-preparo.png'
 import conchaIngredientes from '../assets/img/modoPreparo/concha-ingredientes.png'
 import Conquista from "../components/utils/Conquista.js";
-import PrimeiraReceita from '../assets/img/conquista/primeira-receita.png'
 import demon from '../assets/music/demon.mp3'
+import useSound from 'use-sound';
+import trompete from '../assets/music/trompete.mp3'
+import musica_casamento from '../assets/music/casamento.mp3'
+import PrimeiraReceita from '../assets/img/conquista/primeira-receita.png'
 import HellsKitchen from "../assets/img/conquista/HellsKitchen.png"
 import pengu from "../assets/img/conquista/pingu.png"
 import velho from "../assets/img/conquista/velhoputo.png"
 import jackin from "../assets/img/conquista/jackin.png"
-import useSound from 'use-sound';
-import trompete from '../assets/music/trompete.mp3'
-
+import Anel from "../assets/img/conquista/anel.png"
+import Carne from "../assets/img/conquista/carne.png"
 
 function formatExperienciaReceita(dificuldade) {
   var xp;
@@ -33,7 +35,62 @@ function formatExperienciaReceita(dificuldade) {
   }
   return xp;
 }
+// Verifca mascara
 
+function verificaExist(){
+  //receitas_concluidas
+  if(localStorage.getItem('receitas_concluidas') === null || localStorage.getItem('receitas_concluidas') === '' || localStorage.getItem('receitas_concluidas') === 'NaN')
+    localStorage.setItem('receitas_concluidas', 0)
+  // epoca_ano
+  if(localStorage.getItem('epoca_ano') === null || localStorage.getItem('epoca_ano') === '' || localStorage.getItem('epoca_ano') === 'NaN')
+    localStorage.setItem('epoca_ano', 0)
+  //churrasco
+  if(localStorage.getItem('churrasco') === null || localStorage.getItem('churrasco') === '' || localStorage.getItem('churrasco') === 'NaN')
+    localStorage.setItem('churrasco', 0)
+  // alho
+  if(localStorage.getItem('alho') === null || localStorage.getItem('alho') === '' || localStorage.getItem('alho') === 'NaN')
+    localStorage.setItem('alho', 0)
+  // casamento
+  if(localStorage.getItem('casamento') === null || localStorage.getItem('casamento') === '' || localStorage.getItem('casamento') === 'NaN')
+    localStorage.setItem('casamento', 0)
+}
+
+function ehConquistaQNT(){
+  localStorage.setItem('receitas_concluidas', parseInt(localStorage.getItem('receitas_concluidas'))+1)
+  let receitas_concluidas = localStorage.getItem('receitas_concluidas')  
+  if( receitas_concluidas  === '1' ||
+      receitas_concluidas  === '5' ||
+      receitas_concluidas  === '10' ||
+      receitas_concluidas  === '15' ||
+      receitas_concluidas === '20'
+       
+    ){
+    return true
+  }
+  return false
+}
+
+function ehCasamento(id){
+  let casamento = localStorage.getItem('casamento')
+  if( id === '21'  && casamento !== '1'){
+    localStorage.setItem('casamento', 1)
+    return true
+  }
+  return false
+}
+
+function ehChurrasco(id){
+  console.log(id)
+  if(id === '12' ||
+     id === '13' ||
+     id === '14' )
+    localStorage.setItem('churrasco' , parseInt(localStorage.getItem('churrasco'))+1 )
+  let churrasco = localStorage.getItem('churrasco')
+  if(churrasco === '3')
+    return true
+  return false
+}
+// Conquista QNT
 function getNome(id){
   return id === '1' ? 'Primeira de muitas' :
          id === '5' ? 'Quase profissional':
@@ -51,7 +108,8 @@ function getImg(id){
          id === '20' ? HellsKitchen:
          ''
 }
-function getConquistaPorQuantidade(qnt){
+function getConquistaPorQuantidade(){
+  let qnt = localStorage.getItem('receitas_concluidas')
   let nome = getNome(qnt)
   let img = getImg(qnt)
   const resultado = {
@@ -60,6 +118,26 @@ function getConquistaPorQuantidade(qnt){
     descrição_conquista: 'Está conquista é adquirida ao completar ' + qnt + ' receitas',   
   }
   return resultado
+}
+
+// Conquista Categoria
+
+function getCasamento(){
+  const casamento = {
+    nome_conquista: 'Felizes para sempre',
+    imagem: Anel,
+    descrição_conquista: 'Está conquista é adquirida ao se completar o bolo de casamento',
+  }
+  return casamento
+}
+
+function getChurrasco(){
+  const casamento = {
+    nome_conquista: 'Só falta a cerveja',
+    imagem: Carne,
+    descrição_conquista: 'Está conquista é adquirida ao se completar todas as receitas para churrasco',
+  }
+  return casamento
 }
 
 function PageModoPreparo() {
@@ -71,6 +149,10 @@ function PageModoPreparo() {
   const [play_demon] = useSound(
     demon,
     { volume: 0.5 }
+  );
+  const [play_casamento] = useSound(
+    musica_casamento,
+    { volume: 0.2 }
   );
   const [conquistaAdquirida, setConquistaAdquirida] = useState({
     nome_conquista: '-------',
@@ -98,27 +180,28 @@ function PageModoPreparo() {
   }, []);
 
   const handleClick = () => {
-    if(localStorage.getItem('receitas_concluidas') === null || localStorage.getItem('receitas_concluidas') === '' || localStorage.getItem('receitas_concluidas') === 'NaN')
-      localStorage.setItem('receitas_concluidas', 0)
-    localStorage.setItem('receitas_concluidas', parseInt(localStorage.getItem('receitas_concluidas'))+1)
-    let receitas_concluidas = localStorage.getItem('receitas_concluidas')
-    if( receitas_concluidas  === '1' ||
-        receitas_concluidas  === '5' ||
-        receitas_concluidas  === '10' ||
-        receitas_concluidas  === '15' ||
-        receitas_concluidas === '20'
-       
-      ){
-      const resultado = getConquistaPorQuantidade(receitas_concluidas)
-      setConquistaAdquirida(resultado)
-      if(receitas_concluidas === '20'){
+    verificaExist()
+    var resultado = false
+    if(ehConquistaQNT()){
+      setConquistaAdquirida(getConquistaPorQuantidade())
+      if(localStorage.getItem('receitas_concluidas') === '20'){
         play_demon()
       }else
         play()
-      return true
+      resultado = true
     }
-    
-    return false
+    if(ehChurrasco(id)){
+      setConquistaAdquirida(getChurrasco())
+      play()
+      resultado = true
+    }
+
+    if (ehCasamento(id)){
+      setConquistaAdquirida(getCasamento())
+      play_casamento() // mudar dps
+      resultado = true
+    }
+    return resultado
       
   };
 

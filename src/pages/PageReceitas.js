@@ -98,6 +98,9 @@ function PageReceitas() {
                   <Dropdown.Item onClick={() => setFiltro("Bolos")}>
                     Bolos
                   </Dropdown.Item>
+                  <Dropdown.Item onClick={() => setFiltro("Carnes")}>
+                    Carnes
+                  </Dropdown.Item>
                   <Dropdown.Item onClick={() => setFiltro("Doces")}>
                     Doces
                   </Dropdown.Item>

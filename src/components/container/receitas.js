@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import MaskImg from "../utils/MaskImg";
 
 function formatExperiencia(dificuldade) {
   var xp;
@@ -27,11 +28,7 @@ const Receitas = ({ receitaList }) => {
               
               <div className="receita-item" >
                 <Link to={`ModoDePreparo/${result.id}`}>
-                <img
-                  className="image-box"
-                  src={result.imagem}
-                  alt="Houve um erro ao carregar a imagem"
-                />
+                <MaskImg id={result.id}/>{console.log(result.id)}
                 <div className="title-receita">{result.nome_receita}</div>
                 <div className="title-dificuldade">
                   Dificuldade: {formatExperiencia(result.dificuldade)}

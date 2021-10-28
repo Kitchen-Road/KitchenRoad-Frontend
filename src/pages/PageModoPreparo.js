@@ -4,11 +4,11 @@ import ListaModoPreparo from "../components/utils/ListaModoPreparo.js";
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import getModoDePreparo from "../api/modoPreparoAPI.js";
-import panelaReceita from '../assets/img/modoPreparo/panela-receita.png'
-import panelaModoPreparo from '../assets/img/modoPreparo/panela-modo-preparo.png'
-import conchaIngredientes from '../assets/img/modoPreparo/concha-ingredientes.png'
+import concluirPOST from "../api/concluirReceita.js";
+import panelaReceita from "../assets/img/modoPreparo/panela-receita.png";
+import panelaModoPreparo from "../assets/img/modoPreparo/panela-modo-preparo.png";
+import conchaIngredientes from "../assets/img/modoPreparo/concha-ingredientes.png";
 import Conquista from "../components/utils/Conquista.js";
-
 import useSound from 'use-sound';
 
 import trompete from '../assets/music/trompete.mp3'
@@ -171,24 +171,32 @@ function getNome(id){
          ''
 }
 
-function getImg(id){
-  return id === '1' ? PrimeiraReceita:
-         id === '5' ? pengu:
-         id === '10' ? velho:
-         id === '15' ? jackin:
-         id === '20' ? HellsKitchen:
-         ''
+function getImg(id) {
+  return id === "1"
+    ? PrimeiraReceita
+    : id === "5"
+    ? pengu
+    : id === "10"
+    ? velho
+    : id === "15"
+    ? jackin
+    : id === "20"
+    ? HellsKitchen
+    : "";
 }
+
 function getConquistaPorQuantidade(){
   let qnt = localStorage.getItem('receitas_concluidas')
   let nome = getNome(qnt)
   let img = getImg(qnt)
+
   const resultado = {
     nome_conquista: nome,
     imagem: img,
-    descrição_conquista: 'Está conquista é adquirida ao completar ' + qnt + ' receitas',   
-  }
-  return resultado
+    descrição_conquista:
+      "Está conquista é adquirida ao completar " + qnt + " receitas",
+  };
+  return resultado;
 }
 
 // Conquista Categoria
@@ -287,13 +295,12 @@ function PageModoPreparo() {
     { volume: 0.4 }
   );
   
-
   const [conquistaAdquirida, setConquistaAdquirida] = useState({
-    nome_conquista: '-------',
-    imagem: 'https://cdn.discordapp.com/attachments/869650300913479715/902398054852874290/rei-do-alho-logo-5ED449F072-seeklogo.png',
+    nome_conquista: "-------",
+    imagem:
+      "https://cdn.discordapp.com/attachments/869650300913479715/902398054852874290/rei-do-alho-logo-5ED449F072-seeklogo.png",
     descrição_conquista: "------------------",
-    
-  })
+  });
   const [receita, setReceita] = useState({
     nome_receita: "-----",
     categoria: "-----",
@@ -303,6 +310,7 @@ function PageModoPreparo() {
     dificuldade: "--------",
   });
   const [buttonConquista, setButtonConquista] = useState(false);
+  const [buttonValid, setButtonValid] = useState(false);
 
   useEffect(() => {
     const loadModoPreparo = async () => {
@@ -394,6 +402,7 @@ function PageModoPreparo() {
       escolhe_musica()  
 
     return resultado 
+
   };
 
   return (
@@ -405,17 +414,17 @@ function PageModoPreparo() {
         </Link>
         <div className="topic">
           <div className="title-modo">
-            <img class="img-label" src={panelaReceita}/>
+            <img class="img-label" src={panelaReceita} />
             <h2 className="title-1-red">{receita.nome_receita}</h2>
           </div>
           <h3 className="title-2">{receita.categoria}</h3>
           <Video link={receita.link_video_receita} />
           <p>{formatExperienciaReceita(receita.dificuldade)}</p>
         </div>
-        <ListaModoPreparo 
-        title="Ingredientes" 
-        value={receita.ingredientes} 
-        img={conchaIngredientes}
+        <ListaModoPreparo
+          title="Ingredientes"
+          value={receita.ingredientes}
+          img={conchaIngredientes}
         />
         <ListaModoPreparo
           title="Modo de preparo"
@@ -423,17 +432,23 @@ function PageModoPreparo() {
           img={panelaModoPreparo}
         />
       </main>
-      
-          <button className="btn-black" 
-            onClick={() => setButtonConquista(handleClick())}>
-            Marcar como concluída
-          </button>
+
+      <button
+        className="btn-black"
+        disabled={buttonValid}
+        onClick={() => setButtonConquista(handleClick())}
+      >
+        Concluir Receita
+      </button>
       {/* <Link to="/Receitas"> */}
-        <Conquista trigger={buttonConquista} setTrigger={setButtonConquista}>
-          <h2 className="title-1">{conquistaAdquirida.nome_conquista}</h2>
-          <img src={conquistaAdquirida.imagem} alt="Erro para carregar a imagem "/>
-          <p>{conquistaAdquirida.descrição_conquista}</p>
-        </Conquista>
+      <Conquista trigger={buttonConquista} setTrigger={setButtonConquista}>
+        <h2 className="title-1">{conquistaAdquirida.nome_conquista}</h2>
+        <img
+          src={conquistaAdquirida.imagem}
+          alt="Erro para carregar a imagem "
+        />
+        <p>{conquistaAdquirida.descrição_conquista}</p>
+      </Conquista>
       {/* </Link> */}
     </div>
   );

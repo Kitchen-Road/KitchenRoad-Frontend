@@ -11,7 +11,10 @@ import Conquista from "../components/utils/Conquista.js";
 import demon from '../assets/music/demon.mp3'
 import useSound from 'use-sound';
 import trompete from '../assets/music/trompete.mp3'
+import churras_musica from '../assets/music/churras_musica.mp3'
 import musica_casamento from '../assets/music/casamento.mp3'
+import musica_epoca from '../assets/music/grande-familia.mp3'
+import musica_rei_alho from '../assets/music/musica_alho.mp3'
 import PrimeiraReceita from '../assets/img/conquista/primeira-receita.png'
 import HellsKitchen from "../assets/img/conquista/HellsKitchen.png"
 import pengu from "../assets/img/conquista/pingu.png"
@@ -19,6 +22,8 @@ import velho from "../assets/img/conquista/velhoputo.png"
 import jackin from "../assets/img/conquista/jackin.png"
 import Anel from "../assets/img/conquista/anel.png"
 import Carne from "../assets/img/conquista/carne.png"
+import EpocaImg from "../assets/img/conquista/beicola.png"
+import rei_alho from "../assets/img/conquista/rei_alho.png"
 
 function formatExperienciaReceita(dificuldade) {
   var xp;
@@ -80,14 +85,46 @@ function ehCasamento(id){
 }
 
 function ehChurrasco(id){
-  console.log(id)
   if(id === '12' ||
      id === '13' ||
      id === '14' )
     localStorage.setItem('churrasco' , parseInt(localStorage.getItem('churrasco'))+1 )
   let churrasco = localStorage.getItem('churrasco')
-  if(churrasco === '3')
+  if(churrasco === '3'){
+    localStorage.setItem('churrasco' , parseInt(localStorage.getItem('churrasco'))+1 )
     return true
+  }
+    
+  return false
+}
+
+function ehEpocaAno(id){
+  if(id === '3' ||
+     id === '7' ||
+     id === '6' ||
+     id === '8' ||
+     id === '11' ||
+     id === '10' )
+    localStorage.setItem('epoca_ano' , parseInt(localStorage.getItem('epoca_ano'))+1 )
+  let epoca_ano = localStorage.getItem('epoca_ano')
+  if(epoca_ano === '6'){
+    localStorage.setItem('epoca_ano' , parseInt(localStorage.getItem('epoca_ano'))+1 )
+    return true
+  }
+    
+  return false
+}
+function ehReiDoAlho(id){
+  if(id === '9' ||
+     id === '12' ||
+     id === '18' )
+    localStorage.setItem('alho' , parseInt(localStorage.getItem('alho'))+1 )
+  let epoca_ano = localStorage.getItem('alho')
+  if(epoca_ano === '3'){
+    localStorage.setItem('alho' , parseInt(localStorage.getItem('alho'))+1 )
+    return true
+  }
+    
   return false
 }
 // Conquista QNT
@@ -140,6 +177,26 @@ function getChurrasco(){
   return casamento
 }
 
+function getEpocaAno(){
+  const casamento = {
+    nome_conquista: 'A grande família',
+    imagem: EpocaImg,
+    descrição_conquista: 'Está conquista é adquirida ao se completar todas as receitas de época',
+  }
+  return casamento
+}
+
+function getAlho(){
+  const casamento = {
+    nome_conquista: 'Rei do Alho',
+    imagem: rei_alho,
+    descrição_conquista: 'Está conquista é adquirida ao se completar todas as receitas que contém alho',
+  }
+  return casamento
+}
+
+
+
 function PageModoPreparo() {
   const { id } = useParams();
   const [play] = useSound(
@@ -150,8 +207,20 @@ function PageModoPreparo() {
     demon,
     { volume: 0.5 }
   );
+  const [play_epoca] = useSound(
+    musica_epoca,
+    { volume: 0.5 }
+  );
   const [play_casamento] = useSound(
     musica_casamento,
+    { volume: 0.2 }
+  );
+  const [play_churrasco] = useSound(
+    churras_musica,
+    { volume: 0.2 }
+  );
+  const [play_alho] = useSound(
+    musica_rei_alho,
     { volume: 0.2 }
   );
   const [conquistaAdquirida, setConquistaAdquirida] = useState({
@@ -190,9 +259,15 @@ function PageModoPreparo() {
         play()
       resultado = true
     }
+    if(ehEpocaAno(id)){
+      setConquistaAdquirida(getEpocaAno())
+      play_epoca()
+      resultado = true
+    }
+
     if(ehChurrasco(id)){
       setConquistaAdquirida(getChurrasco())
-      play()
+      play_churrasco()
       resultado = true
     }
 
@@ -201,8 +276,16 @@ function PageModoPreparo() {
       play_casamento() // mudar dps
       resultado = true
     }
-    return resultado
+    
+    if (ehReiDoAlho(id)){
+      setConquistaAdquirida(getAlho())
+      play_alho() // mudar dps
+      resultado = true
+    
+    }
       
+
+    return resultado 
   };
 
   return (

@@ -344,6 +344,7 @@ function PageModoPreparo() {
     }
     // halloween
     else if(localStorage.getItem('halloween') === '2'){
+      localStorage.setItem('halloween' , parseInt(localStorage.getItem('halloween'))+1 )
       play_halloween()  
     }
     // churrasco

@@ -361,7 +361,15 @@ function PageModoPreparo() {
       play()
   }
   
+  const loadConclusaoResponse = async () => {
+    let response;
+    response = await concluirPOST(receita.nome_receita);
+    if (response.status == 200) setButtonValid(true);
+  };
+
+
   const handleClick = () => {
+    loadConclusaoResponse();
     verificaExist()
     var resultado = false
     if(ehConquistaQNT()){

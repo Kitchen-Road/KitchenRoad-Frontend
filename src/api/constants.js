@@ -10,7 +10,7 @@ const API = {
   DICA: "dicas/",
   CONCLUIR: "concluir-receita/",
   LISTCONCLUIDAS: "listar-concluidas/",
-  TOKEN: "524ead71841625521f2abb80f5ceb5e475bd7e3ad8cc61dedf22466894900f25",
+  TOKEN: "676700718bbb7b4dbec112afc1a343c8d48e4f997eb09ec8d71467a5d7cc7da8",
 };
 
 export default API;
